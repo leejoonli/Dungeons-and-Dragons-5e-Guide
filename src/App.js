@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import Character from './components/Character/Character';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
@@ -9,8 +10,10 @@ function App() {
       <h1>
         hello world
       </h1>
-      <Character />
-      <GameRulesAndMechanics />
+      <Routes>
+      </Routes>
+        <Character />
+        <GameRulesAndMechanics />
     </main>
   );
 }
