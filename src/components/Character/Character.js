@@ -6,16 +6,22 @@ function Character(props) {
     const [races, setRaces] = useState(null);
     const [stats, setStats] = useState(null);
 
+    // useEffect for API call, currently for testing purposes
     useEffect(() => {
         fetch("https://www.dnd5eapi.co/api/classes")
             .then(res => res.json())
             .then(res => setClasses(res.results))
             .catch(console.error);
+        
+        fetch("https://www.dnd5eapi.co/api/races")
+            .then(res => res.json())
+            .then(res => setRaces(res.results))
+            .catch(console.error);
     }, []);
 
     return (
         <div>
-            Classes
+            <h2>Classes</h2>
             <div>
                 {(classes === null) ? null : classes.map((element, index) => {
                     return (
@@ -25,6 +31,26 @@ function Character(props) {
                     )
                 })}
             </div>
+            <h2>Races</h2>
+            <div>
+                {(races === null) ? null : races.map((element, index) => {
+                    return (
+                        <div key={`${element.index}-${index}`}>
+                            {element.name}
+                        </div>
+                    )
+                })}
+            </div>
+            {/* <h2>Stats</h2>
+            <div>
+                {(stats === null) ? null : stats.map((element, index) => {
+                    return (
+                        <div key={`${element.index}-${index}`}>
+                            {element.name}
+                        </div>
+                    )
+                })}
+            </div> */}
         </div>
     );
 }

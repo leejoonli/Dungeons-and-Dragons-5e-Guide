@@ -1,21 +1,22 @@
 App
-    Character
-        Classes
-            classes (API call)
-                proficiencies
-                subclasses
-                    features
-                features
-        Races
-            races (API call)
-                subraces
+    Home
+        Character
+            Classes
+                classes (API call)
                     proficiencies
-                proficiencies
-                traits
-                languages
-        Stats (API call)
-            ability scores
-            alignments
-            backgrounds
-            skills
-    Game Rules and Mechanics
+                    subclasses
+                        features
+                    features
+            Races
+                races (API call)
+                    subraces
+                        proficiencies
+                    proficiencies
+                    traits
+                    languages
+            Stats (API call)
+                ability scores
+                alignments
+                backgrounds
+                skills
+        Game Rules and Mechanics
