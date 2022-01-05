@@ -10,10 +10,14 @@ function App() {
       <h1>
         hello world
       </h1>
+      <nav>
+        <Link to='/character'>Character</Link>
+      </nav>
       <Routes>
+        <Route path="/character" element={<Character />} />
       </Routes>
-        <Character />
-        <GameRulesAndMechanics />
+        {/* <Character /> */}
+        {/* <GameRulesAndMechanics /> */}
     </main>
   );
 }
