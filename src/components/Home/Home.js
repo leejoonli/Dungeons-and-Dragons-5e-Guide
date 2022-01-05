@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Character from '../Character/Character';
 
 function Home(props) {
@@ -7,9 +7,7 @@ function Home(props) {
         <>
             <nav>
                 <Link to='/character'>
-                    <div>
                         Character
-                    </div>
                 </Link>
             </nav>
         </>
