@@ -26,17 +26,31 @@ function Class(props) {
                         <li>Hit Points at Higher Levels:</li>
                     </ul> */}
                     <h3>Proficiencies</h3>
-                    <ul>Weapons:
+                    <h4>Weapons and Armor:</h4>
+                    <ul>
                         {dndClass.proficiencies.map((element, index) => {
                             return <li key={`${element.index}-${index}`}>{element.name}</li>;
                         })}
                     </ul>
-                    <ul>Saving Throws:
+                    {!dndClass.proficiency_choices[1] ? null:
+                    <>
+                        <h4>Tools:</h4>
+                        <p>Choose: {dndClass.proficiency_choices[1].choose}</p>
+                        <ul>
+                            {dndClass.proficiency_choices[1].from.map((element, index) => {
+                                return <li key={`${element.index}-${index}`}>{element.name}</li>
+                            })}
+                        </ul>
+                    </>}
+                    <h4>Saving Throws:</h4>
+                    <ul>
                         {dndClass.saving_throws.map((element, index) => {
                             return <li key={`${element.index}-${index}`}>{element.name}</li>
                         })}
                     </ul>
-                    <ul>Skills:
+                    <h4>Skills:</h4>
+                    <p>Choose {dndClass.proficiency_choices[0].choose}</p>
+                    <ul>
                         {dndClass.proficiency_choices[0].from.map((element, index) => {
                             return <li key={`${element.index}-${index}`}>{element.name}</li>
                         })}
