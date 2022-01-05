@@ -21,7 +21,7 @@ function Character(props) {
 
     return (
         <div>
-            <h2>Classes</h2>
+            <h2>Class</h2>
             <div>
                 {(classes === null) ? null : classes.map((element, index) => {
                     return (
@@ -31,7 +31,7 @@ function Character(props) {
                     )
                 })}
             </div>
-            <h2>Races</h2>
+            <h2>Race</h2>
             <div>
                 {(races === null) ? null : races.map((element, index) => {
                     return (

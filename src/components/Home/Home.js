@@ -4,11 +4,15 @@ import Character from '../Character/Character';
 
 function Home(props) {
     return (
-        <div>
+        <>
             <nav>
-                <Link to='/character'>Character</Link>
+                <Link to='/character'>
+                    <div>
+                        Character
+                    </div>
+                </Link>
             </nav>
-        </div>
+        </>
     );
 }
 
