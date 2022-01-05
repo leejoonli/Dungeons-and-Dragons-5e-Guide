@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+## Project Description 
+My application is called D&D5e Rundown(name is work in progress).  This react built application is for introducing one of the greatest table top role playing games ever created.  It will serve as an easy to find and read information pipeline about Dungeons and Dragons 5th edition.  Users will be able to browse through game mechanics and rules as well as character breakdowns so they can learn about the wondrous game of Dungeons and Dragons and become a nerd like the rest of us.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to the API you plan to use
+This will be the link to the API documentation (It's a completely open API and requires no authentication key):
 
-## Available Scripts
+http://www.dnd5eapi.co/docs/
 
-In the project directory, you can run:
+## Example data response you plan to use
+The result of using https://www.dnd5eapi.co/api:
 
-### `npm start`
+```
+{
+   ability-scores: "/api/ability-scores",
+   alignments: "/api/alignments",
+   backgrounds: "/api/backgrounds",
+   classes: "/api/classes",
+   conditions: "/api/conditions",
+   damage-types: "/api/damage-types",
+   equipment-categories: "/api/equipment-categories",
+   equipment: "/api/equipment",
+   feats: "/api/feats",
+   features: "/api/features",
+   languages: "/api/languages",
+   magic-items: "/api/magic-items",
+   magic-schools: "/api/magic-schools",
+   monsters: "/api/monsters",
+   proficiencies: "/api/proficiencies",
+   races: "/api/races",
+   rules: "/api/rules",
+   rule-sections: "/api/rule-sections",
+   skills: "/api/skills",
+   spells: "/api/spells",
+   subclasses: "/api/subclasses",
+   subraces: "/api/subraces",
+   traits: "/api/traits",
+   weapon-properties: "/api/weapon-properties"
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Visual of your component hierarchy
+![image](https://media.git.generalassemb.ly/user/40293/files/51b4c980-6d95-11ec-8a95-035bd9be0c2f)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+As stated in the wireframe of the component hierarchy and shown from the sample API call in the section above, there will be more components than the ones shown here.
 
-### `npm test`
+## Wire Frames
+### Home Component
+![image](https://media.git.generalassemb.ly/user/40293/files/68a7eb80-6d96-11ec-8903-3a55729ead52)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Parent Component
+![image](https://media.git.generalassemb.ly/user/40293/files/80cc3a80-6d97-11ec-87e0-43056c930dcc)
 
-### `npm run build`
+### Information Component
+![image](https://media.git.generalassemb.ly/user/40293/files/f258b880-6d98-11ec-8f86-581a78136ce7)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Stories
+- As a user, I would like to be able to read about what this app is so that I can understand what the application is supposed to do.
+- As a user, I would like to be able to click on elements on the page so that I can interact with the application.
+- As a user, I would like to be able to clearly see and know what I'm navigating to so that I don't get lost on the website.
+- As a user, I would like relevant information to be grouped together so that I can easily find information.
+- As a user, I would like to be able to return to previous pages so that I can more quickly navigate to where I want to go.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### MVP Goals
+- Display information about selected component without any images.
+- Create paths to components using Router.
+- Create necessary components and exclude elements such as the "monsters" section in the API documentation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Stretch Goals
+- Add indexes for components with egregious amounts of information for quicker navigation.
+- Add buttons or links to components to more quickly navigate to the home screen or the previous screen.
+- Add related information from sources such as the Dungeon Master's Guide.
+- Add other related information from other source books provided by Wizards of the Coast.
+- Add a light and dark theme switcher using React Context.
