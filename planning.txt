@@ -1,0 +1,20 @@
+App
+    Character
+        Classes
+            classes
+                proficiencies
+                subclasses
+                    features
+                features
+        Races
+            races
+                proficiencies?
+                subraces
+                traits
+                languages
+        Stats
+            ability scores
+            alignments
+            backgrounds
+            skills
+    Game Rules and Mechanics
