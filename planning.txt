@@ -1,18 +1,19 @@
 App
     Character
         Classes
-            classes
+            classes (API call)
                 proficiencies
                 subclasses
                     features
                 features
         Races
-            races
-                proficiencies?
+            races (API call)
                 subraces
+                    proficiencies
+                proficiencies
                 traits
                 languages
-        Stats
+        Stats (API call)
             ability scores
             alignments
             backgrounds
