@@ -63,11 +63,16 @@ function Class(props) {
                         })}
                     </ul>
                     <ul>
-                        {/* dndClass.starting_equipment_options.map((element, index) => {
+                        {dndClass.starting_equipment_options.map((element, index) => {
                             return (
-                                (element.from)
+                                <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element) => {
+                                    return (
+                                        element.equipment ? <p>{element.equipment.name}</p> :
+                                        !element.equipment_option ? null : <p>{element.equipment_option.from.equipment_category.name}</p>
+                                    );
+                                })}</li>
                             )
-                        })}  */}
+                        })} 
                     </ul>
                     <h4>Subclasses</h4>
                     <p>{dndClass.subclasses[0].name}</p>

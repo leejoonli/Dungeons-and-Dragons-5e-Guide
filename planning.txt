@@ -20,3 +20,7 @@ App
                 backgrounds
                 skills
         Game Rules and Mechanics
+
+BUGS TO SQUASH
+add quanitity to equipment when available
+add (if proficient to equipment) - damn clerics ruining everything
