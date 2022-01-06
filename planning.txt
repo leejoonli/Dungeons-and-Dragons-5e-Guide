@@ -23,4 +23,4 @@ App
 
 BUGS TO SQUASH
 add quanitity to equipment when available
-add (if proficient to equipment) - damn clerics ruining everything
+add (if proficient to use equipment) - damn clerics ruining everything

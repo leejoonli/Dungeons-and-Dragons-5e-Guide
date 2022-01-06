@@ -65,15 +65,36 @@ function Class(props) {
                     <ul>
                         {dndClass.starting_equipment_options.map((element, index) => {
                             return (
-                                <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element) => {
+                                <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element, index) => {
                                     return (
-                                        element.equipment ? <p>{element.equipment.name}</p> :
-                                        !element.equipment_option ? null : <p>{element.equipment_option.from.equipment_category.name}</p>
+                                        element.equipment ? <p key={`${element.equipment.index}-${index}`}>{element.equipment.name}</p> :
+                                        !element.equipment_option ? null : <p key={`${element.equipment_option.from.equipment_category.index}-${index}`}>{element.equipment_option.from.equipment_category.name}</p>
                                     );
                                 })}</li>
                             )
                         })} 
                     </ul>
+                    {dndClass.spellcasting && (
+                        <>
+                            <h4>Spellcasting</h4>
+                            <div>{dndClass.spellcasting.info.map((element, index) => {
+                                return (
+                                    <>
+                                        <h5 key={`${element.name}-${index}`}>{element.name}</h5>
+                                        {element.desc.map((element, index) => {
+                                            return (
+                                                <>
+                                                    <p key={`desc-${index}`}>{element}</p>
+                                                </>
+                                            );
+                                        })}
+                                    </>
+                                );
+                            })}</div>
+                            <h4>Spellcasting Ability</h4>
+                            <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
+                        </>
+                    )}
                     <h4>Subclasses</h4>
                     <p>{dndClass.subclasses[0].name}</p>
                 </>
