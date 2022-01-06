@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import SubClass from '../SubClass/SubClass';
 
 function Class(props) {
     const [dndClass, setDndClass] = useState(null);
@@ -12,7 +13,7 @@ function Class(props) {
             .then(res => setDndClass(res))
             .catch(console.error)
     }, [id]);
-
+    
     return (
         <div>
             {(dndClass === null ? null :
@@ -79,24 +80,21 @@ function Class(props) {
                             <h4>Spellcasting</h4>
                             <div>{dndClass.spellcasting.info.map((element, index) => {
                                 return (
-                                    <>
-                                        <h5 key={`${element.name}-${index}`}>{element.name}</h5>
+                                    <div key={`${element.name}-${index}`}>
+                                        <h5>{element.name}</h5>
                                         {element.desc.map((element, index) => {
                                             return (
-                                                <>
-                                                    <p key={`desc-${index}`}>{element}</p>
-                                                </>
+                                                <p key={`desc-${index}`}>{element}</p>
                                             );
                                         })}
-                                    </>
+                                    </div>
                                 );
                             })}</div>
                             <h4>Spellcasting Ability</h4>
                             <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
                         </>
                     )}
-                    <h4>Subclasses</h4>
-                    <p>{dndClass.subclasses[0].name}</p>
+                    <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
             )}
         </div>
