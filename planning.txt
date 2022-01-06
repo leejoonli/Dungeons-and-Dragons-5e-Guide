@@ -19,8 +19,13 @@ App
                 alignments
                 backgrounds
                 skills
+            Spells
+                class spell lists
         Game Rules and Mechanics
 
 BUGS TO SQUASH
 add quanitity to equipment when available
 add (if proficient to use equipment) - damn clerics ruining everything
+
+THINGS TO DO
+add multiclass information to game mechanics section
