@@ -19,12 +19,12 @@ function Class(props) {
                 <>
                     <h1>{dndClass.name}</h1>
                     <h2>Class Features</h2>
-                    {/* <h3>Hit Points</h3>
+                    <h3>Hit Points</h3>
                     <ul>
-                        <li>Hit Dice:</li>
-                        <li>Hit Points at 1st Level:</li>
-                        <li>Hit Points at Higher Levels:</li>
-                    </ul> */}
+                        <li>Hit Dice: 1d{dndClass.hit_die} per {dndClass.index} level</li>
+                        <li>Hit Points at 1st Level: {dndClass.hit_die} + your Constitution modifier</li>
+                        <li>Hit Points at Higher Levels: 1d{dndClass.hit_die} + your Constitution modifier per {dndClass.index} level after 1st</li>
+                    </ul>
                     <h3>Proficiencies</h3>
                     <h4>Weapons and Armor:</h4>
                     <ul>
@@ -41,7 +41,8 @@ function Class(props) {
                                 return <li key={`${element.index}-${index}`}>{element.name}</li>
                             })}
                         </ul>
-                    </>}
+                    </>
+                    }
                     <h4>Saving Throws:</h4>
                     <ul>
                         {dndClass.saving_throws.map((element, index) => {
@@ -49,12 +50,27 @@ function Class(props) {
                         })}
                     </ul>
                     <h4>Skills:</h4>
-                    <p>Choose {dndClass.proficiency_choices[0].choose}</p>
+                    <p>Choose {dndClass.proficiency_choices[0].choose} from:</p>
                     <ul>
                         {dndClass.proficiency_choices[0].from.map((element, index) => {
-                            return <li key={`${element.index}-${index}`}>{element.name}</li>
+                            return <li key={`${element.index}-${index}`}>{element.name.replace('Skill: ', '')}</li>
                         })}
                     </ul>
+                    <h4>Equipment</h4>
+                    <ul>
+                        {dndClass.starting_equipment.map((element, index) => {
+                            return <li key={`${element.equipment.index}-${index}`}>{element.equipment.name}</li>
+                        })}
+                    </ul>
+                    <ul>
+                        {/* {dndClass.starting_equipment_options.map((element, index) => {
+                            return (
+                                (element.from)
+                            )
+                        })} */}
+                    </ul>
+                    <h4>Subclasses</h4>
+                    <p>{dndClass.subclasses[0].name}</p>
                 </>
             )}
         </div>

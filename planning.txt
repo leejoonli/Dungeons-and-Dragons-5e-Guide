@@ -20,3 +20,6 @@ App
                 backgrounds
                 skills
         Game Rules and Mechanics
+
+FEATURES TO NOT FORGET
+display quantities for items
