@@ -49,8 +49,12 @@ function Class(props) {
                                         </>
                                         ) : (dndClass.name === 'Fighter') ? (
                                         <>
-                                            <p>{element.level}</p>
-                                            <p>+{element.prof_bonus}</p>
+                                            {element.prof_bonus ?
+                                            <>
+                                                <p>{element.level}</p>
+                                                <p>+{element.prof_bonus}</p>
+                                            </>
+                                            : null}
                                         </>
                                         ) : (dndClass.name === 'Monk') ? (
                                         <>
