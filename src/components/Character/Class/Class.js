@@ -25,6 +25,34 @@ function Class(props) {
             {(dndClass &&
                 <>
                     <h1>{dndClass.name}</h1>
+                    {dndClassLevels &&
+                    <div>
+                        <h2>The {dndClass.name}</h2>
+                        <div>Spell Slots per Level</div>
+                        <div>
+                            {dndClassLevels.map((element, index) => {
+                                return (
+                                    <div key={`${element.index}-${index}`}>
+                                        {element.spellcasting && (
+                                        <>
+                                            <p>{element.level}</p>
+                                            <p>+{element.prof_bonus}</p>
+                                            {/* https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution*/}
+                                            <>
+                                            {Object.keys(element.spellcasting).map((item, index) => {
+                                                return (
+                                                    <p key={index}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</p>
+                                                );
+                                            })}
+                                            </>
+                                        </>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    }
                     <h2>Class Features</h2>
                     <h3>Hit Points</h3>
                     <ul>
