@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SubClass from '../SubClass/SubClass';
 import Features from '../Features/Features';
+import styles from './Class.module.css';
 
 function Class(props) {
     // state to hold class and class level information
@@ -19,7 +20,16 @@ function Class(props) {
             .catch(console.error)
         fetch(`https://www.dnd5eapi.co/api/classes/${id}/levels`)
             .then(res => res.json())
-            .then(res => setDndClassLevels(res))
+            .then(res => {
+                switch(id) {
+                    case 'barbarian':
+                        setDndClassLevels(res.filter((element) => element.class_specific));
+                        break;
+                    default:
+                        setDndClassLevels(res);
+                        break;
+                }
+            })
             .catch(console.error)
     }, [id]);
     
@@ -32,18 +42,18 @@ function Class(props) {
                     <div>
                         <h2>The {dndClass.name}</h2>
                         {!dndClass.spellcasting ? null : <div>Spell Slots per Level</div>}
-                        <div>
+                        <div className={styles.gridContainer}>
                             {dndClassLevels.map((element, index) => {
                                 return (
-                                    <div key={`${element.index}-${index}`}>
+                                    <div key={`${element.index}-${index}`} className={styles.rowContainer}>
                                         {element.spellcasting ? (
                                         <>
-                                            <p>{element.level}</p>
-                                            <p>+{element.prof_bonus}</p>
+                                            <div className={styles.tableInfo}>{element.level}</div>
+                                            <div className={styles.tableInfo}>+{element.prof_bonus}</div>
                                             {/* https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution*/}
                                             {Object.keys(element.spellcasting).map((item, index) => {
                                                 return (
-                                                    <p key={index}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</p>
+                                                    <div key={index} className={styles.tableInfo}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</div>
                                                 );
                                             })}
                                         </>
@@ -51,8 +61,8 @@ function Class(props) {
                                         <>
                                             {element.prof_bonus ?
                                             <>
-                                                <p>{element.level}</p>
-                                                <p>+{element.prof_bonus}</p>
+                                                <div>{element.level}</div>
+                                                <div>+{element.prof_bonus}</div>
                                             </>
                                             : null}
                                         </>
@@ -60,19 +70,19 @@ function Class(props) {
                                         <>
                                             {element.class_specific && (
                                             <>
-                                                <p>1d{element.class_specific.martial_arts.dice_value}</p>
-                                                <p>{element.class_specific.ki_points ? element.class_specific.ki_points : '-'}</p>
-                                                <p>{element.class_specific.unarmored_movement ? `+${element.class_specific.unarmored_movement} ft.` : '-'}</p>
+                                                <div>1d{element.class_specific.martial_arts.dice_value}</div>
+                                                <div>{element.class_specific.ki_points ? element.class_specific.ki_points : '-'}</div>
+                                                <div>{element.class_specific.unarmored_movement ? `+${element.class_specific.unarmored_movement} ft.` : '-'}</div>
                                             </>
                                             )}
                                         </>
                                         ) : (element.class_specific) ? (
                                         <>
-                                            <p>{element.level}</p>
-                                            <p>+{element.prof_bonus}</p>
+                                            <div>{element.level}</div>
+                                            <div>+{element.prof_bonus}</div>
                                             {Object.keys(element.class_specific).map((item, index) => {
                                                 return (
-                                                    <p key={index}>{element.class_specific[item] === 9999 ? 'Unlimited' : element.class_specific[item] ? element.class_specific[item] : '-'}</p>
+                                                    <div key={index}>{element.class_specific[item] === 9999 ? 'Unlimited' : element.class_specific[item] ? element.class_specific[item] : '-'}</div>
                                                 );
                                             })}
                                         </>

@@ -1,0 +1,21 @@
+/* element {
+    --grid-column: ()
+} */
+
+.gridContainer {
+    background-color: lemonchiffon;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    /* grid-template-columns: repeat(5, 20px);
+    grid-template-rows: repeat(20, 1fr); */
+}
+
+.rowContainer {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.tableInfo {
+    /* flex-basis:auto; */
+}
