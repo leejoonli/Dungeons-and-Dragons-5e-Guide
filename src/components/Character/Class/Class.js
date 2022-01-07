@@ -105,7 +105,6 @@ function Class(props) {
                         {dndClassLevels.map((element, index) => {
                             return (
                                 <div key={`${element.index}-${index}`}>
-                                    {element.features.length === 0 ? null : <h3>Level {element.level}</h3>}
                                     {element.features.map((element, index) => {
                                         return (
                                             <div key={`${element.index}-${index}`}>
