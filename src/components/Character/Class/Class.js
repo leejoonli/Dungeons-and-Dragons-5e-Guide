@@ -4,6 +4,7 @@ import SubClass from '../SubClass/SubClass';
 
 function Class(props) {
     const [dndClass, setDndClass] = useState(null);
+    const [dndClassLevels, setDndClassLevels] = useState(null);
 
     const { id } = useParams();
     
@@ -11,6 +12,10 @@ function Class(props) {
         fetch(`https://www.dnd5eapi.co/api/classes/${id}`)
             .then(res => res.json())
             .then(res => setDndClass(res))
+            .catch(console.error)
+        fetch(`https://www.dnd5eapi.co/api/classes/${id}/levels`)
+            .then(res => res.json())
+            .then(res => setDndClassLevels(res))
             .catch(console.error)
     }, [id]);
     

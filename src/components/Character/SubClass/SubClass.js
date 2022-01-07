@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Features from '../Features/Features';
 
 function SubClass(props) {
     const [subClass, setSubClass] = useState(null);
@@ -18,30 +19,30 @@ function SubClass(props) {
     return (
         <div>
             {subClass &&
+            <>
+                <h2>{subClass.subclass_flavor}: {subClass.name}</h2>
+                <p>{subClass.desc[0]}</p>
+                {subClassLevels &&
                 <>
-                    <h2>{subClass.subclass_flavor}: {subClass.name}</h2>
-                    <p>{subClass.desc[0]}</p>
-                    {subClassLevels &&
-                        <>
-                            {subClassLevels.map((element, index) => {
-                                return (
-                                    <div key={`${element.index}-${index}`}>
-                                        <h3>At Level {element.level}:</h3>
-                                        <>
-                                            {element.features.map((element) => {
-                                                return (
-                                                    <div key={`${element.index}-${index}`}>
-                                                        <h4>{element.name}</h4>
-                                                    </div>
-                                                )
-                                            })}
-                                        </>
-                                    </div>
-                                )
-                            })}
-                        </>
-                    }
+                    {subClassLevels.map((element, index) => {
+                        return (
+                            <div key={`${element.index}-${index}`}>
+                                <>
+                                    {element.features.map((element) => {
+                                        return (
+                                            <div key={`${element.index}-${index}`}>
+                                                <h4>{element.name}</h4>
+                                                <Features features={element.index} />
+                                            </div>
+                                        )
+                                    })}
+                                </>
+                            </div>
+                        )
+                    })}
                 </>
+                }
+            </>
             }
         </div>
     );
