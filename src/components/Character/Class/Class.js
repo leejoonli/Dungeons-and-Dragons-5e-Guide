@@ -33,20 +33,37 @@ function Class(props) {
                             {dndClassLevels.map((element, index) => {
                                 return (
                                     <div key={`${element.index}-${index}`}>
-                                        {element.spellcasting && (
+                                        {element.spellcasting ? (
                                         <>
                                             <p>{element.level}</p>
                                             <p>+{element.prof_bonus}</p>
                                             {/* https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution*/}
-                                            <>
                                             {Object.keys(element.spellcasting).map((item, index) => {
                                                 return (
                                                     <p key={index}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</p>
                                                 );
                                             })}
-                                            </>
                                         </>
-                                        )}
+                                        ) : (dndClass.name === 'Fighter') ? (
+                                        <>
+                                            <p>{element.level}</p>
+                                            <p>+{element.prof_bonus}</p>
+                                        </>
+                                        ) : (dndClass.name === 'Monk') ? (
+                                        <>
+                                            <p>hello world</p>
+                                        </>
+                                        ) : (element.class_specific) ? (
+                                        <>
+                                            <p>{element.level}</p>
+                                            <p>+{element.prof_bonus}</p>
+                                            {Object.keys(element.class_specific).map((item, index) => {
+                                                return (
+                                                    <p key={index}>{element.class_specific[item] === 9999 ? 'Unlimited' : element.class_specific[item] ? element.class_specific[item] : '-'}</p>
+                                                );
+                                            })}
+                                        </>
+                                        ) : null}
                                     </div>
                                 );
                             })}
