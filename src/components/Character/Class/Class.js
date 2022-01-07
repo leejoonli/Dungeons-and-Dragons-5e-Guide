@@ -16,7 +16,7 @@ function Class(props) {
     
     return (
         <div>
-            {(dndClass === null ? null :
+            {(dndClass &&
                 <>
                     <h1>{dndClass.name}</h1>
                     <h2>Class Features</h2>
@@ -94,6 +94,7 @@ function Class(props) {
                             <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
                         </>
                     )}
+                    <h4>Subclass</h4>
                     <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
             )}
