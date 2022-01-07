@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SubClass from '../SubClass/SubClass';
+import Features from '../Features/Features';
 
 function Class(props) {
     const [dndClass, setDndClass] = useState(null);
@@ -82,7 +83,7 @@ function Class(props) {
                     </ul>
                     {dndClass.spellcasting && (
                         <>
-                            <h4>Spellcasting</h4>
+                            <h3>Spellcasting</h3>
                             <div>{dndClass.spellcasting.info.map((element, index) => {
                                 return (
                                     <div key={`${element.name}-${index}`}>
@@ -99,6 +100,25 @@ function Class(props) {
                             <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
                         </>
                     )}
+                    {dndClassLevels &&
+                    <>
+                        {dndClassLevels.map((element, index) => {
+                            return (
+                                <div key={`${element.index}-${index}`}>
+                                    {element.features.length === 0 ? null : <h3>Level {element.level}</h3>}
+                                    {element.features.map((element, index) => {
+                                        return (
+                                            <div key={`${element.index}-${index}`}>
+                                                <h4>{element.name}</h4>
+                                                <Features features={element.index} />
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            );
+                        })}
+                    </>
+                    }
                     <h4>Subclass</h4>
                     <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
