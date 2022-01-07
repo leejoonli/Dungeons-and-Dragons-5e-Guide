@@ -4,11 +4,14 @@ import SubClass from '../SubClass/SubClass';
 import Features from '../Features/Features';
 
 function Class(props) {
+    // state to hold class and class level information
     const [dndClass, setDndClass] = useState(null);
     const [dndClassLevels, setDndClassLevels] = useState(null);
 
+    // id to hold the query parameters for fetch request
     const { id } = useParams();
     
+    // useEffect to make api call to fetch data about class and class level
     useEffect(() => {
         fetch(`https://www.dnd5eapi.co/api/classes/${id}`)
             .then(res => res.json())
@@ -28,7 +31,7 @@ function Class(props) {
                     {dndClassLevels &&
                     <div>
                         <h2>The {dndClass.name}</h2>
-                        <div>Spell Slots per Level</div>
+                        {!dndClass.spellcasting ? null : <div>Spell Slots per Level</div>}
                         <div>
                             {dndClassLevels.map((element, index) => {
                                 return (
@@ -51,7 +54,13 @@ function Class(props) {
                                         </>
                                         ) : (dndClass.name === 'Monk') ? (
                                         <>
-                                            <p>hello world</p>
+                                            {element.class_specific && (
+                                            <>
+                                                <p>1d{element.class_specific.martial_arts.dice_value}</p>
+                                                <p>{element.class_specific.ki_points ? element.class_specific.ki_points : '-'}</p>
+                                                <p>{element.class_specific.unarmored_movement ? `+${element.class_specific.unarmored_movement} ft.` : '-'}</p>
+                                            </>
+                                            )}
                                         </>
                                         ) : (element.class_specific) ? (
                                         <>
