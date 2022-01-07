@@ -2,20 +2,26 @@
     --grid-column: ()
 } */
 
-.gridContainer {
+.infoContainer {
     background-color: lemonchiffon;
     display: flex;
     flex-direction: column;
-    width: 50vw;
     /* grid-template-columns: repeat(5, 20px);
     grid-template-rows: repeat(20, 1fr); */
 }
 
 .rowContainer {
+    background-color: lemonchiffon;
     display: flex;
+    flex-direction: row;
+    flex: 0 1 auto;
+    align-items: stretch;
     /* justify-content: space-between; */
 }
 
 .tableInfo {
-    /* flex-basis:auto; */
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: stretch;
+    flex-basis: auto;
 }

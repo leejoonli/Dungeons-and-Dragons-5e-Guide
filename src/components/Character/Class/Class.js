@@ -42,7 +42,7 @@ function Class(props) {
                     <div>
                         <h2>The {dndClass.name}</h2>
                         {!dndClass.spellcasting ? null : <div>Spell Slots per Level</div>}
-                        <div className={styles.gridContainer}>
+                        <div className={styles.ifoContainer}>
                             {dndClassLevels.map((element, index) => {
                                 return (
                                     <div key={`${element.index}-${index}`} className={styles.rowContainer}>
