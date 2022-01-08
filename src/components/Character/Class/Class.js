@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { resolvePath, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SubClass from '../SubClass/SubClass';
 import Features from '../Features/Features';
 import styles from './Class.module.css';
@@ -76,6 +76,7 @@ function Class(props) {
                         for(let i = 0; i < tempWarlockArr.length; i++) {
                             finalWarlockTempArr.push(tempWarlockArr[i].level);
                             finalWarlockTempArr.push(`+${tempWarlockArr[i].prof_bonus}`);
+                            // https://stackoverflow.com/questions/40803828/reactjs-map-through-object Found a solution to map the keys of an object
                             (Object.keys(tempWarlockArr[i].spellcasting)).forEach((element, index) => {
                                if(tempWarlockArr[i].spellcasting[element] && index > 1) {
                                   finalWarlockTempArr.push(tempWarlockArr[i].spellcasting[element]);

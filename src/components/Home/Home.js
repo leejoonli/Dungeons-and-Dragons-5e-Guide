@@ -7,7 +7,7 @@ function Home(props) {
         <>
             <nav>
                 <Link to='/character'>
-                        Character
+                    Character
                 </Link>
             </nav>
         </>

@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Character from './components/Character/Character';
 import Classes from './components/Character/Classes';
 import Class from './components/Character/Class/Class';
+import Races from './components/Character/Races/Races';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     <main>
       <h1>
         <Link to="/">
-          hello world
+          Home
         </Link>
       </h1>
       <Routes>
@@ -20,8 +21,9 @@ function App() {
         <Route path="/character" element={<Character />} />
         <Route path="/character/classes" element={<Classes />} />
         <Route path="/character/classes/:id" element={<Class />} />
+        <Route path="/races" element={<Races />} />
       </Routes>
-        {/* <GameRulesAndMechanics /> */}
+      {/* <GameRulesAndMechanics /> */}
     </main>
   );
 }

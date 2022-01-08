@@ -14,7 +14,7 @@ function Class(props) {
     }, []);
 
     return (
-        <div>
+        <>
             {(classes === null) ? null : classes.map((element, index) => {
                 return (
                     <div key={`${element.index}-${index}`}>
@@ -24,7 +24,7 @@ function Class(props) {
                     </div>
                 )
             })}
-        </div>
+        </>
     );
 }
 
