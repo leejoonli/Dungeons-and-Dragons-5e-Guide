@@ -26,8 +26,7 @@ App
 BUGS TO SQUASH
 add quanitity to equipment when available
 add (if proficient to use equipment) - damn clerics ruining everything
-repeating eldritch invocation description
+repeating class descriptions
 
 THINGS TO DO
 add multiclass information to game mechanics section
-make tables for each class
