@@ -8,7 +8,7 @@ function Class(props) {
     // state to hold class and class level information
     const [dndClass, setDndClass] = useState(null);
     const [dndClassLevels, setDndClassLevels] = useState(null);
-
+    const [dndClassLevelsData, setDndClassLevelsData] = useState([]);
     // id to hold the query parameters for fetch request
     const { id } = useParams();
     
@@ -23,7 +23,16 @@ function Class(props) {
             .then(res => {
                 switch(id) {
                     case 'barbarian':
-                        setDndClassLevels(res.filter((element) => element.class_specific));
+                        let finalTempArr = [];
+                        const tempArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempArr);
+                        for(let i = 0; i < tempArr.length; i++) {
+                            finalTempArr.push(tempArr[i].level);
+                            finalTempArr.push(tempArr[i].prof_bonus);
+                            finalTempArr.push(tempArr[i].class_specific.rage_count);
+                            finalTempArr.push(tempArr[i].class_specific.rage_damage_bonus);
+                        }
+                        setDndClassLevelsData(finalTempArr);
                         break;
                     default:
                         setDndClassLevels(res);
@@ -38,7 +47,16 @@ function Class(props) {
             {(dndClass &&
                 <>
                     <h1>{dndClass.name}</h1>
-                    {dndClassLevels &&
+                    {dndClassLevelsData &&
+                    <div className={styles.gridContainer}>
+                        {dndClassLevelsData.map((element, index) => {
+                            return (
+                                <div key={`data-${index}`} className={styles.gridElement}>{element !== 9999 ? element : 'Unlimited'}</div>
+                            )
+                        })}
+                    </div>
+                    }
+                    {/* {dndClassLevels &&
                     <div>
                         <h2>The {dndClass.name}</h2>
                         {!dndClass.spellcasting ? null : <div>Spell Slots per Level</div>}
@@ -50,7 +68,7 @@ function Class(props) {
                                         <>
                                             <div className={styles.tableInfo}>{element.level}</div>
                                             <div className={styles.tableInfo}>+{element.prof_bonus}</div>
-                                            {/* https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution*/}
+                                            https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution
                                             {Object.keys(element.spellcasting).map((item, index) => {
                                                 return (
                                                     <div key={index} className={styles.tableInfo}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</div>
@@ -92,7 +110,7 @@ function Class(props) {
                             })}
                         </div>
                     </div>
-                    }
+                    } */}
                     <h2>Class Features</h2>
                     <h3>Hit Points</h3>
                     <ul>
