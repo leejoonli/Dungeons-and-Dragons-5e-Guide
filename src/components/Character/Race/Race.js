@@ -23,6 +23,12 @@ function Race(props) {
             {race &&
             <>
                 <h1>{race.name}</h1>
+                <h2>Ability Score Increase</h2>
+                {race.ability_bonuses.map((element, index) => {
+                    return (
+                        <p key={`asi-${index}`}>+{element.bonus} to {element.ability_score.name}</p>
+                    )
+                })}
                 <h2>Age</h2>
                 <p>{race.age}</p>
                 <h2>Alignment</h2>
@@ -64,6 +70,16 @@ function Race(props) {
                             </div>
                         );
                     })}
+                    {race.language_options &&
+                    <>
+                        <h3>Choose {race.language_options.choose} from</h3>
+                        {race.language_options.from.map((element, index) => {
+                            return (
+                                <p key={`${element.index}-${index}`}>{element.name}</p>
+                            )
+                        })}
+                    </>
+                    }
                 </>
                 {race.subraces.length !== 0 &&
                 <>
