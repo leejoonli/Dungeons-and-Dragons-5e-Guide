@@ -58,15 +58,27 @@ function Class(props) {
                         }
                         setDndClassLevelsData(finalFighterTempArr);
                         break;
-                    default:
-                        let finalCasterTempArr = [];
-                        const tempCasterArr = res.filter((element) => element.spellcasting);
-                        setDndClassLevels(tempCasterArr);
-                        for(let i = 0; i < tempCasterArr.length; i++) {
-                            finalCasterTempArr.push(tempCasterArr[i].level);
-                            finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
+                    case 'rogue':
+                        let finalRogueTempArr = [];
+                        const tempRogueArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempRogueArr);
+                        for(let i = 0; i < tempRogueArr.length; i++) {
+                            finalRogueTempArr.push(tempRogueArr[i].level);
+                            finalRogueTempArr.push(`+${tempRogueArr[i].prof_bonus}`);
+                            finalRogueTempArr.push(`${tempRogueArr[i].class_specific.sneak_attack.dice_count}d${tempRogueArr[i].class_specific.sneak_attack.dice_value}`);
                         }
-                        setDndClassLevelsData(finalCasterTempArr);
+                        setDndClassLevelsData(finalRogueTempArr);
+                        break;
+                    default:
+                        // let finalCasterTempArr = [];
+                        // const tempCasterArr = res.filter((element) => element.spellcasting);
+                        // setDndClassLevels(tempCasterArr);
+                        // for(let i = 0; i < tempCasterArr.length; i++) {
+                        //     finalCasterTempArr.push(tempCasterArr[i].level);
+                        //     finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
+                        //     Object.keys(tempCasterArr.spellcasting).forEach((element) => finalCasterTempArr.push(element));
+                        // }
+                        // setDndClassLevelsData(finalCasterTempArr);
                         break;
                 }
             })
