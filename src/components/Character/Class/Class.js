@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SubClass from '../SubClass/SubClass';
-import Features from '../Features/Features';
+import Feature from '../Feature/Feature';
 import styles from './Class.module.css';
 
 function Class(props) {
@@ -216,7 +216,7 @@ function Class(props) {
                                     return (
                                         <div key={`${element.index}-${index}`}>
                                             <h4>{element.name}</h4>
-                                            <Features features={element.index} />
+                                            <Feature feature={element.index} />
                                         </div>
                                     )
                                 })}

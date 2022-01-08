@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-function Features(props) {
-    const [features, setFeatures] = useState(null);
+function Feature(props) {
+    const [feature, setFeatures] = useState(null);
 
     useEffect(() => {
-    fetch(`https://www.dnd5eapi.co/api/features/${props.features}`)
+    fetch(`https://www.dnd5eapi.co/api/features/${props.feature}`)
         .then(res => res.json())
         .then(res => setFeatures(res))
         .catch(console.error)
-    }, [props.features]);
+    }, [props.feature]);
 
     return (
         <p>
-            {features &&
+            {feature &&
             <>
-                {features.desc}
+                {feature.desc}
             </>
             }
         </p>
     );
 }
 
-export default Features;
+export default Feature;

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 function Language(props) {
+    // state to store data from api
     const [language, setLanguage] = useState(null);
 
+    // useEffect to fetch data from api
     useEffect(() => {
         fetch(`https://www.dnd5eapi.co/api/languages/${props.languageId}`)
             .then(res => res.json())

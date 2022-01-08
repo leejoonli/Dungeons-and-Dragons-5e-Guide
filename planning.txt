@@ -30,3 +30,4 @@ repeating class descriptions
 
 THINGS TO DO
 add multiclass information to game mechanics section
+add headers for class tables

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Features from '../Features/Features';
+import Feature from '../Feature/Feature';
 
 function SubClass(props) {
     const [subClass, setSubClass] = useState(null);
@@ -32,7 +32,7 @@ function SubClass(props) {
                                         return (
                                             <div key={`${element.index}-${index}`}>
                                                 <h4>{element.name}</h4>
-                                                <Features features={element.index} />
+                                                <Feature feature={element.index} />
                                             </div>
                                         )
                                     })}
