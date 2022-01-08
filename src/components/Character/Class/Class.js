@@ -69,16 +69,36 @@ function Class(props) {
                         }
                         setDndClassLevelsData(finalRogueTempArr);
                         break;
+                    case 'warlock':
+                        let finalWarlockTempArr = [];
+                        const tempWarlockArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempWarlockArr);
+                        for(let i = 0; i < tempWarlockArr.length; i++) {
+                            finalWarlockTempArr.push(tempWarlockArr[i].level);
+                            finalWarlockTempArr.push(`+${tempWarlockArr[i].prof_bonus}`);
+                            (Object.keys(tempWarlockArr[i].spellcasting)).forEach((element, index) => {
+                               if(tempWarlockArr[i].spellcasting[element] && index > 1) {
+                                  finalWarlockTempArr.push(tempWarlockArr[i].spellcasting[element]);
+                                  finalWarlockTempArr.push((index - 1));
+                               }
+                               else if(tempWarlockArr[i].spellcasting[element]) {
+                                  finalWarlockTempArr.push(tempWarlockArr[i].spellcasting[element]);
+                               }
+                            });
+                            finalWarlockTempArr.push(tempWarlockArr[i].class_specific.invocations_known);
+                        }
+                        setDndClassLevelsData(finalWarlockTempArr);
+                        break;
                     default:
-                        // let finalCasterTempArr = [];
-                        // const tempCasterArr = res.filter((element) => element.spellcasting);
-                        // setDndClassLevels(tempCasterArr);
-                        // for(let i = 0; i < tempCasterArr.length; i++) {
-                        //     finalCasterTempArr.push(tempCasterArr[i].level);
-                        //     finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
-                        //     Object.keys(tempCasterArr.spellcasting).forEach((element) => finalCasterTempArr.push(element));
-                        // }
-                        // setDndClassLevelsData(finalCasterTempArr);
+                        let finalCasterTempArr = [];
+                        const tempCasterArr = res.filter((element) => element.spellcasting);
+                        setDndClassLevels(tempCasterArr);
+                        for(let i = 0; i < tempCasterArr.length; i++) {
+                            finalCasterTempArr.push(tempCasterArr[i].level);
+                            finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
+                            Object.keys(tempCasterArr[i].spellcasting).forEach((element) => finalCasterTempArr.push(tempCasterArr[i].spellcasting[element]));
+                        }
+                        setDndClassLevelsData(finalCasterTempArr);
                         break;
                 }
             })
@@ -95,70 +115,17 @@ function Class(props) {
                     : id === 'fighter' ? 'repeat(2, 1fr)'
                     : id === 'monk' ? 'repeat(5, 1fr)'
                     : id === 'rogue' ? 'repeat(3, 1fr)'
-                    : id === 'warlock' || id === 'paladin' || id === 'ranger'? 'repeat(7, 1fr)'
-                    : 'repeat(12, 1fr)'}}>
+                    : id === 'warlock' || id === 'paladin' ? 'repeat(7, 1fr)'
+                    : id === 'ranger' ? 'repeat(8, 1fr)'
+                    : id === 'cleric' || id === 'druid' || id === 'wizard' ? 'repeat(12, 1fr)'
+                    : 'repeat(13, 1fr)'}}>
                         {dndClassLevelsData.map((element, index) => {
                             return (
-                                <div key={`data-${index}`} className={styles.gridElement}>{element !== 9999 ? element : 'Unlimited'}</div>
+                                <div key={`data-${index}`} className={styles.gridElement}>{element === 0 ? '-' : element !== 9999 ? element : 'Unlimited'}</div>
                             )
                         })}
                     </div>
                     }
-                    {/* {dndClassLevels &&
-                    <div>
-                        <h2>The {dndClass.name}</h2>
-                        {!dndClass.spellcasting ? null : <div>Spell Slots per Level</div>}
-                        <div className={styles.ifoContainer}>
-                            {dndClassLevels.map((element, index) => {
-                                return (
-                                    <div key={`${element.index}-${index}`} className={styles.rowContainer}>
-                                        {element.spellcasting ? (
-                                        <>
-                                            <div className={styles.tableInfo}>{element.level}</div>
-                                            <div className={styles.tableInfo}>+{element.prof_bonus}</div>
-                                            https://stackoverflow.com/questions/40803828/reactjs-map-through-object Needed to map out an object and came across this solution
-                                            {Object.keys(element.spellcasting).map((item, index) => {
-                                                return (
-                                                    <div key={index} className={styles.tableInfo}>{element.spellcasting[item] ? element.spellcasting[item] : '-'}</div>
-                                                );
-                                            })}
-                                        </>
-                                        ) : (dndClass.name === 'Fighter') ? (
-                                        <>
-                                            {element.prof_bonus ?
-                                            <>
-                                                <div>{element.level}</div>
-                                                <div>+{element.prof_bonus}</div>
-                                            </>
-                                            : null}
-                                        </>
-                                        ) : (dndClass.name === 'Monk') ? (
-                                        <>
-                                            {element.class_specific && (
-                                            <>
-                                                <div>1d{element.class_specific.martial_arts.dice_value}</div>
-                                                <div>{element.class_specific.ki_points ? element.class_specific.ki_points : '-'}</div>
-                                                <div>{element.class_specific.unarmored_movement ? `+${element.class_specific.unarmored_movement} ft.` : '-'}</div>
-                                            </>
-                                            )}
-                                        </>
-                                        ) : (element.class_specific) ? (
-                                        <>
-                                            <div>{element.level}</div>
-                                            <div>+{element.prof_bonus}</div>
-                                            {Object.keys(element.class_specific).map((item, index) => {
-                                                return (
-                                                    <div key={index}>{element.class_specific[item] === 9999 ? 'Unlimited' : element.class_specific[item] ? element.class_specific[item] : '-'}</div>
-                                                );
-                                            })}
-                                        </>
-                                        ) : null}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                    } */}
                     <h2>Class Features</h2>
                     <h3>Hit Points</h3>
                     <ul>
@@ -234,7 +201,7 @@ function Class(props) {
                             <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
                         </>
                     )}
-                    {/* {dndClassLevels &&
+                    {dndClassLevels &&
                     <>
                         {dndClassLevels.map((element, index) => {
                             return (
@@ -251,7 +218,7 @@ function Class(props) {
                             );
                         })}
                     </>
-                    } */}
+                    }
                     <h4>Subclass</h4>
                     <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
