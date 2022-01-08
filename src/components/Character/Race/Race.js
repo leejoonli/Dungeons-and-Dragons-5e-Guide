@@ -47,7 +47,7 @@ function Race(props) {
                     {race.starting_proficiency_options.from.map((element, index) => {
                         return (
                             <div key={`${element.index}-${index}`}>
-                                <p>{element.name}</p>
+                                <p>{element.name.replace('Skill: ', '')}</p>
                             </div>
                         )
                     })}
@@ -65,7 +65,7 @@ function Race(props) {
                         );
                     })}
                 </>
-                {race.subraces &&
+                {race.subraces.length !== 0 &&
                 <>
                     <h2>Subrace</h2>
                     {race.subraces &&

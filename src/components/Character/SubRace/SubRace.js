@@ -40,6 +40,30 @@ function SubRace(props) {
                     })}
                 </>
                 }
+                {subRace.starting_proficienies &&
+                <>
+                    <h4>Starting Proficiencies</h4>
+                    {subRace.starting_proficienies.map((element, index) => {
+                        return (
+                            <div key={`${element.index}-${index}`}>
+                                {element.name}
+                            </div>
+                        )
+                    })}
+                </>
+                }
+                {subRace.language_options &&
+                <>
+                    <h4>Choose {subRace.language_options.choose} from:</h4>
+                    {subRace.language_options.from.map((element, index) => {
+                        return (
+                            <div key={`${element.index}-${index}`}>
+                                {element.name}
+                            </div>
+                        )
+                    })}
+                </>
+                }
             </div>
             }
         </>
