@@ -111,19 +111,23 @@ function Class(props) {
             <>
                 <h1>{dndClass.name}</h1>
                 {dndClassLevelsData &&
-                <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
-                : id === 'fighter' ? 'repeat(2, 1fr)'
-                : id === 'monk' ? 'repeat(5, 1fr)'
-                : id === 'rogue' ? 'repeat(3, 1fr)'
-                : id === 'warlock' || id === 'paladin' ? 'repeat(7, 1fr)'
-                : id === 'ranger' ? 'repeat(8, 1fr)'
-                : id === 'cleric' || id === 'druid' || id === 'wizard' ? 'repeat(12, 1fr)'
-                : 'repeat(13, 1fr)'}}>
-                    {dndClassLevelsData.map((element, index) => {
-                        return (
-                            <div key={`data-${index}`} className={styles.gridElement}>{element === 0 ? '-' : element !== 9999 ? element : 'Unlimited'}</div>
-                        )
-                    })}
+                <div>
+                    <div>The {dndClass.name}</div>
+                    {dndClass.spellcasting && <div>Spell Slots per Spell Level</div>}
+                    <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
+                    : id === 'fighter' ? 'repeat(2, 1fr)'
+                    : id === 'monk' ? 'repeat(5, 1fr)'
+                    : id === 'rogue' ? 'repeat(3, 1fr)'
+                    : id === 'warlock' || id === 'paladin' ? 'repeat(7, 1fr)'
+                    : id === 'ranger' ? 'repeat(8, 1fr)'
+                    : id === 'cleric' || id === 'druid' || id === 'wizard' ? 'repeat(12, 1fr)'
+                    : 'repeat(13, 1fr)'}}>
+                        {dndClassLevelsData.map((element, index) => {
+                            return (
+                                <div key={`data-${index}`} className={styles.gridElement}>{element === 0 ? '-' : element !== 9999 ? element : 'Unlimited'}</div>
+                            )
+                        })}
+                    </div>
                 </div>
                 }
                 <h2>Class Features</h2>
