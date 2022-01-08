@@ -6,6 +6,7 @@ import Character from './components/Character/Character';
 import Classes from './components/Character/Classes';
 import Class from './components/Character/Class/Class';
 import Races from './components/Character/Races/Races';
+import Race from './components/Character/Race/Race';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         <Route path="/character" element={<Character />} />
         <Route path="/character/classes" element={<Classes />} />
         <Route path="/character/classes/:id" element={<Class />} />
-        <Route path="/races" element={<Races />} />
+        <Route path="/character/races" element={<Races />} />
+        <Route path="/character/races/:id" element={<Race />} />
       </Routes>
       {/* <GameRulesAndMechanics /> */}
     </main>
