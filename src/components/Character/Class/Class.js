@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { resolvePath, useParams } from 'react-router-dom';
 import SubClass from '../SubClass/SubClass';
 import Features from '../Features/Features';
 import styles from './Class.module.css';
@@ -9,9 +9,10 @@ function Class(props) {
     const [dndClass, setDndClass] = useState(null);
     const [dndClassLevels, setDndClassLevels] = useState(null);
     const [dndClassLevelsData, setDndClassLevelsData] = useState([]);
+
     // id to hold the query parameters for fetch request
     const { id } = useParams();
-    
+
     // useEffect to make api call to fetch data about class and class level
     useEffect(() => {
         fetch(`https://www.dnd5eapi.co/api/classes/${id}`)
@@ -23,19 +24,49 @@ function Class(props) {
             .then(res => {
                 switch(id) {
                     case 'barbarian':
-                        let finalTempArr = [];
-                        const tempArr = res.filter((element) => element.class_specific);
-                        setDndClassLevels(tempArr);
-                        for(let i = 0; i < tempArr.length; i++) {
-                            finalTempArr.push(tempArr[i].level);
-                            finalTempArr.push(`+${tempArr[i].prof_bonus}`);
-                            finalTempArr.push(tempArr[i].class_specific.rage_count);
-                            finalTempArr.push(`+${tempArr[i].class_specific.rage_damage_bonus}`);
+                        let finalBarbTempArr = [];
+                        const tempBarbArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempBarbArr);
+                        for(let i = 0; i < tempBarbArr.length; i++) {
+                            finalBarbTempArr.push(tempBarbArr[i].level);
+                            finalBarbTempArr.push(`+${tempBarbArr[i].prof_bonus}`);
+                            finalBarbTempArr.push(tempBarbArr[i].class_specific.rage_count);
+                            finalBarbTempArr.push(`+${tempBarbArr[i].class_specific.rage_damage_bonus}`);
                         }
-                        setDndClassLevelsData(finalTempArr);
+                        setDndClassLevelsData(finalBarbTempArr);
+                        break;
+                    case 'monk':
+                        let finalMonkTempArr = [];
+                        const tempMonkArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempMonkArr);
+                        for(let i = 0; i < tempMonkArr.length; i++) {
+                            finalMonkTempArr.push(tempMonkArr[i].level);
+                            finalMonkTempArr.push(`+${tempMonkArr[i].prof_bonus}`);
+                            finalMonkTempArr.push(`1d${tempMonkArr[i].class_specific.martial_arts.dice_value}`);
+                            finalMonkTempArr.push(tempMonkArr[i].class_specific.ki_points);
+                            finalMonkTempArr.push(tempMonkArr[i].class_specific.unarmored_movement);
+                        }
+                        setDndClassLevelsData(finalMonkTempArr);
+                        break;
+                    case 'fighter':
+                        let finalFighterTempArr = [];
+                        const tempFighterArr = res.filter((element) => element.class_specific);
+                        setDndClassLevels(tempFighterArr);
+                        for(let i = 0; i < tempFighterArr.length; i++) {
+                            finalFighterTempArr.push(tempFighterArr[i].level);
+                            finalFighterTempArr.push(`+${tempFighterArr[i].prof_bonus}`);
+                        }
+                        setDndClassLevelsData(finalFighterTempArr);
                         break;
                     default:
-                        setDndClassLevels(res);
+                        let finalCasterTempArr = [];
+                        const tempCasterArr = res.filter((element) => element.spellcasting);
+                        setDndClassLevels(tempCasterArr);
+                        for(let i = 0; i < tempCasterArr.length; i++) {
+                            finalCasterTempArr.push(tempCasterArr[i].level);
+                            finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
+                        }
+                        setDndClassLevelsData(finalCasterTempArr);
                         break;
                 }
             })
@@ -48,7 +79,12 @@ function Class(props) {
                 <>
                     <h1>{dndClass.name}</h1>
                     {dndClassLevelsData &&
-                    <div className={styles.gridContainer}>
+                    <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
+                    : id === 'fighter' ? 'repeat(2, 1fr)'
+                    : id === 'monk' ? 'repeat(5, 1fr)'
+                    : id === 'rogue' ? 'repeat(3, 1fr)'
+                    : id === 'warlock' || id === 'paladin' || id === 'ranger'? 'repeat(7, 1fr)'
+                    : 'repeat(12, 1fr)'}}>
                         {dndClassLevelsData.map((element, index) => {
                             return (
                                 <div key={`data-${index}`} className={styles.gridElement}>{element !== 9999 ? element : 'Unlimited'}</div>
@@ -186,7 +222,7 @@ function Class(props) {
                             <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
                         </>
                     )}
-                    {dndClassLevels &&
+                    {/* {dndClassLevels &&
                     <>
                         {dndClassLevels.map((element, index) => {
                             return (
@@ -203,7 +239,7 @@ function Class(props) {
                             );
                         })}
                     </>
-                    }
+                    } */}
                     <h4>Subclass</h4>
                     <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
