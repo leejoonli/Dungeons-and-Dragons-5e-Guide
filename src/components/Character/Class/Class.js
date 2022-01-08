@@ -108,120 +108,121 @@ function Class(props) {
     return (
         <div>
             {(dndClass &&
+            <>
+                <h1>{dndClass.name}</h1>
+                {dndClassLevelsData &&
+                <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
+                : id === 'fighter' ? 'repeat(2, 1fr)'
+                : id === 'monk' ? 'repeat(5, 1fr)'
+                : id === 'rogue' ? 'repeat(3, 1fr)'
+                : id === 'warlock' || id === 'paladin' ? 'repeat(7, 1fr)'
+                : id === 'ranger' ? 'repeat(8, 1fr)'
+                : id === 'cleric' || id === 'druid' || id === 'wizard' ? 'repeat(12, 1fr)'
+                : 'repeat(13, 1fr)'}}>
+                    {dndClassLevelsData.map((element, index) => {
+                        return (
+                            <div key={`data-${index}`} className={styles.gridElement}>{element === 0 ? '-' : element !== 9999 ? element : 'Unlimited'}</div>
+                        )
+                    })}
+                </div>
+                }
+                <h2>Class Features</h2>
+                <h3>Hit Points</h3>
+                <ul>
+                    <li>Hit Dice: 1d{dndClass.hit_die} per {dndClass.index} level</li>
+                    <li>Hit Points at 1st Level: {dndClass.hit_die} + your Constitution modifier</li>
+                    <li>Hit Points at Higher Levels: 1d{dndClass.hit_die} + your Constitution modifier per {dndClass.index} level after 1st</li>
+                </ul>
+                <h3>Proficiencies</h3>
+                <h4>Weapons and Armor:</h4>
+                <ul>
+                    {dndClass.proficiencies.map((element, index) => {
+                        return <li key={`${element.index}-${index}`}>{element.name}</li>;
+                    })}
+                </ul>
+                {!dndClass.proficiency_choices[1] ? null:
                 <>
-                    <h1>{dndClass.name}</h1>
-                    {dndClassLevelsData &&
-                    <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
-                    : id === 'fighter' ? 'repeat(2, 1fr)'
-                    : id === 'monk' ? 'repeat(5, 1fr)'
-                    : id === 'rogue' ? 'repeat(3, 1fr)'
-                    : id === 'warlock' || id === 'paladin' ? 'repeat(7, 1fr)'
-                    : id === 'ranger' ? 'repeat(8, 1fr)'
-                    : id === 'cleric' || id === 'druid' || id === 'wizard' ? 'repeat(12, 1fr)'
-                    : 'repeat(13, 1fr)'}}>
-                        {dndClassLevelsData.map((element, index) => {
-                            return (
-                                <div key={`data-${index}`} className={styles.gridElement}>{element === 0 ? '-' : element !== 9999 ? element : 'Unlimited'}</div>
-                            )
-                        })}
-                    </div>
-                    }
-                    <h2>Class Features</h2>
-                    <h3>Hit Points</h3>
+                    <h4>Tools:</h4>
+                    <p>Choose: {dndClass.proficiency_choices[1].choose}</p>
                     <ul>
-                        <li>Hit Dice: 1d{dndClass.hit_die} per {dndClass.index} level</li>
-                        <li>Hit Points at 1st Level: {dndClass.hit_die} + your Constitution modifier</li>
-                        <li>Hit Points at Higher Levels: 1d{dndClass.hit_die} + your Constitution modifier per {dndClass.index} level after 1st</li>
-                    </ul>
-                    <h3>Proficiencies</h3>
-                    <h4>Weapons and Armor:</h4>
-                    <ul>
-                        {dndClass.proficiencies.map((element, index) => {
-                            return <li key={`${element.index}-${index}`}>{element.name}</li>;
-                        })}
-                    </ul>
-                    {!dndClass.proficiency_choices[1] ? null:
-                    <>
-                        <h4>Tools:</h4>
-                        <p>Choose: {dndClass.proficiency_choices[1].choose}</p>
-                        <ul>
-                            {dndClass.proficiency_choices[1].from.map((element, index) => {
-                                return <li key={`${element.index}-${index}`}>{element.name}</li>
-                            })}
-                        </ul>
-                    </>
-                    }
-                    <h4>Saving Throws:</h4>
-                    <ul>
-                        {dndClass.saving_throws.map((element, index) => {
+                        {dndClass.proficiency_choices[1].from.map((element, index) => {
                             return <li key={`${element.index}-${index}`}>{element.name}</li>
                         })}
                     </ul>
-                    <h4>Skills:</h4>
-                    <p>Choose {dndClass.proficiency_choices[0].choose}</p>
-                    <ul>
-                        {dndClass.proficiency_choices[0].from.map((element, index) => {
-                            return <li key={`${element.index}-${index}`}>{element.name.replace('Skill: ', '')}</li>
-                        })}
-                    </ul>
-                    <h4>Equipment</h4>
-                    <ul>
-                        {dndClass.starting_equipment.map((element, index) => {
-                            return <li key={`${element.equipment.index}-${index}`}>{element.equipment.name}</li>
-                        })}
-                    </ul>
-                    <ul>
-                        {dndClass.starting_equipment_options.map((element, index) => {
-                            return (
-                                <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element, index) => {
-                                    return (
-                                        element.equipment ? <p key={`${element.equipment.index}-${index}`}>{element.equipment.name}</p> :
-                                        !element.equipment_option ? null : <p key={`${element.equipment_option.from.equipment_category.index}-${index}`}>{element.equipment_option.from.equipment_category.name}</p>
-                                    );
-                                })}</li>
-                            )
-                        })} 
-                    </ul>
-                    {dndClass.spellcasting && (
-                        <>
-                            <h3>Spellcasting</h3>
-                            <div>{dndClass.spellcasting.info.map((element, index) => {
-                                return (
-                                    <div key={`${element.name}-${index}`}>
-                                        <h5>{element.name}</h5>
-                                        {element.desc.map((element, index) => {
-                                            return (
-                                                <p key={`desc-${index}`}>{element}</p>
-                                            );
-                                        })}
-                                    </div>
-                                );
-                            })}</div>
-                            <h4>Spellcasting Ability</h4>
-                            <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
-                        </>
-                    )}
-                    {dndClassLevels &&
-                    <>
-                        {dndClassLevels.map((element, index) => {
-                            return (
-                                <div key={`${element.index}-${index}`}>
-                                    {element.features.map((element, index) => {
-                                        return (
-                                            <div key={`${element.index}-${index}`}>
-                                                <h4>{element.name}</h4>
-                                                <Features features={element.index} />
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </>
-                    }
-                    <h4>Subclass</h4>
-                    <SubClass subclass={dndClass.subclasses[0].index} />
                 </>
+                }
+                <h4>Saving Throws:</h4>
+                <ul>
+                    {dndClass.saving_throws.map((element, index) => {
+                        return <li key={`${element.index}-${index}`}>{element.name}</li>
+                    })}
+                </ul>
+                <h4>Skills:</h4>
+                <p>Choose {dndClass.proficiency_choices[0].choose}</p>
+                <ul>
+                    {dndClass.proficiency_choices[0].from.map((element, index) => {
+                        return <li key={`${element.index}-${index}`}>{element.name.replace('Skill: ', '')}</li>
+                    })}
+                </ul>
+                <h4>Equipment</h4>
+                <ul>
+                    {dndClass.starting_equipment.map((element, index) => {
+                        return <li key={`${element.equipment.index}-${index}`}>{element.equipment.name}</li>
+                    })}
+                </ul>
+                <ul>
+                    {dndClass.starting_equipment_options.map((element, index) => {
+                        return (
+                            <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element, index) => {
+                                return (
+                                    element.equipment ? <p key={`${element.equipment.index}-${index}`}>{element.equipment.name}</p> :
+                                    !element.equipment_option ? null : <p key={`${element.equipment_option.from.equipment_category.index}-${index}`}>{element.equipment_option.from.equipment_category.name}</p>
+                                );
+                            })}</li>
+                        )
+                    })} 
+                </ul>
+                {dndClass.spellcasting && (
+                <>
+                    <h3>Spellcasting</h3>
+                    <div>{dndClass.spellcasting.info.map((element, index) => {
+                        return (
+                            <div key={`${element.name}-${index}`}>
+                                <h5>{element.name}</h5>
+                                {element.desc.map((element, index) => {
+                                    return (
+                                        <p key={`desc-${index}`}>{element}</p>
+                                    );
+                                })}
+                            </div>
+                        );
+                    })}</div>
+                    <h4>Spellcasting Ability</h4>
+                    <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
+                </>
+                )}
+                {dndClassLevels &&
+                <>
+                    {dndClassLevels.map((element, index) => {
+                        return (
+                            <div key={`${element.index}-${index}`}>
+                                <h3>Level: {element.level}</h3>
+                                {element.features.map((element, index) => {
+                                    return (
+                                        <div key={`${element.index}-${index}`}>
+                                            <h4>{element.name}</h4>
+                                            <Features features={element.index} />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        );
+                    })}
+                </>
+                }
+                <h4>Subclass</h4>
+                <SubClass subclass={dndClass.subclasses[0].index} />
+            </>
             )}
         </div>
     );

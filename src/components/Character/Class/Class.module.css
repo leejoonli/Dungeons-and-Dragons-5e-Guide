@@ -1,32 +1,5 @@
-/* element {
-    --grid-column: ()
-} */
-
-/* .infoContainer {
-    background-color: lemonchiffon;
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: repeat(5, 20px);
-    grid-template-rows: repeat(20, 1fr);
-}
-
-.rowContainer {
-    background-color: lemonchiffon;
-    display: flex;
-    flex-direction: row;
-    flex: 0 1 auto;
-    align-items: stretch;
-    justify-content: space-between;
-}
-
-.tableInfo {
-    flex-grow: 1;
-    flex-shrink: 1;
-    align-items: stretch;
-    flex-basis: auto;
-} */
-
 .gridContainer {
+    border: 2px solid red;
     display: grid;
     width: 50vw;
     grid-template-columns: repeat(2, 1fr);
