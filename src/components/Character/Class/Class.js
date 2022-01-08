@@ -28,9 +28,9 @@ function Class(props) {
                         setDndClassLevels(tempArr);
                         for(let i = 0; i < tempArr.length; i++) {
                             finalTempArr.push(tempArr[i].level);
-                            finalTempArr.push(tempArr[i].prof_bonus);
+                            finalTempArr.push(`+${tempArr[i].prof_bonus}`);
                             finalTempArr.push(tempArr[i].class_specific.rage_count);
-                            finalTempArr.push(tempArr[i].class_specific.rage_damage_bonus);
+                            finalTempArr.push(`+${tempArr[i].class_specific.rage_damage_bonus}`);
                         }
                         setDndClassLevelsData(finalTempArr);
                         break;

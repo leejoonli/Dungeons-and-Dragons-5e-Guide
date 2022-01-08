@@ -28,7 +28,8 @@
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(4, 20px);
+    width: 50vw;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .gridElement {
