@@ -24,6 +24,7 @@ function AbilityScore(props) {
                         </div>
                     )
                 })}
+                <h3>Affected Skills</h3>
                 {abilityScore.skills.map((element, index) => {
                     return (
                         <div key={`SKILL-${index}`}>{element.name}</div>

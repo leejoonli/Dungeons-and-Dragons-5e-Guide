@@ -9,6 +9,8 @@ import Races from './components/Character/Races/Races';
 import Race from './components/Character/Race/Race';
 import Stats from './components/Character/Stats/Stats';
 import AbilityScores from './components/Character/AbilityScores/AbilityScores';
+import Alignments from './components/Character/Alignments/Alignments';
+import Backgrounds from './components/Character/Backgrounds/Backgrounds';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
         <Route path="/character/races/:id" element={<Race />} />
         <Route path="/character/stats" element={<Stats />} />
         <Route path="/character/stats/ability-scores" element={<AbilityScores />} />
+        <Route path="/character/stats/alignments" element={<Alignments />} />
+        <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
       </Routes>
       {/* <GameRulesAndMechanics /> */}
     </main>
