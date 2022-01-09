@@ -12,7 +12,9 @@ import AbilityScores from './components/Character/AbilityScores/AbilityScores';
 import Alignments from './components/Character/Alignments/Alignments';
 import Backgrounds from './components/Character/Backgrounds/Backgrounds';
 import Skills from './components/Character/Skills/Skills';
-import Spells from './components/Character/Spells/Spells';
+import SpellLists from './components/Character/SpellLists/SpellLists';
+import SpellList from './components/Character/SpellList/SpellList';
+import ClassSpellLists from './components/Character/ClassSpellLists/ClassSpellLists';
 import Spell from './components/Character/Spell/Spell';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
@@ -32,7 +34,9 @@ function App() {
         <Route path="/character/stats/alignments" element={<Alignments />} />
         <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
         <Route path="/character/stats/skills" element={<Skills />} />
-        <Route path="/character/spells" element={<Spells />} />
+        <Route path="/character/spells" element={<SpellLists />} />
+        <Route path="/character/spells/spell-list" element={<SpellList />} />
+        <Route path="/character/spells/spell-list-by-class" element={<ClassSpellLists />} />
         <Route path="/character/spells/:id" element={<Spell />} />
       </Routes>
       {/* <GameRulesAndMechanics /> */}

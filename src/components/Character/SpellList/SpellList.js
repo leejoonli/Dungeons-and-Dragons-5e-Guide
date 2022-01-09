@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Spell from '../Spell/Spell';
 
 function Spells(props) {
     // create an array of objects to organize list of spells from api
@@ -82,7 +81,6 @@ function Spells(props) {
                                 return (
                                     <div key={`${element.slug}-${index}`}>
                                         <Link to={`/character/spells/${element.slug}`}>{element.name}</Link>
-                                        {/* <Spell spellId={element.slug} /> */}
                                     </div>
                                 )
                             })}

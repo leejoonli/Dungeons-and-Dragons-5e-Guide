@@ -19,8 +19,8 @@ App
                 alignments
                 backgrounds
                 skills
-            Spells  <- YOU ARE HERE
-                class spell lists
+            Spells
+                class spell lists <- YOU ARE HERE
         Game Rules and Mechanics
 
 BUGS TO SQUASH
