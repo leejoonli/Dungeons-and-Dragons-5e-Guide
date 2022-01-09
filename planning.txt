@@ -14,8 +14,8 @@ App
                     proficiencies
                     traits
                     languages
-            Stats (API call) <- YOU ARE HERE
-                ability scores
+            Stats (API call)
+                ability scores  <- YOU ARE HERE
                 alignments
                 backgrounds
                 skills

@@ -14,7 +14,23 @@ function AbilityScore(props) {
 
     return (
         <div>
-            hello world
+            {abilityScore &&
+            <>
+                <h2>{abilityScore.full_name}</h2>
+                {abilityScore.desc.map((element, index) => {
+                    return (
+                        <div key={`AS-${index}`}>
+                            <p>{element}</p>
+                        </div>
+                    )
+                })}
+                {abilityScore.skills.map((element, index) => {
+                    return (
+                        <div key={`SKILL-${index}`}>{element.name}</div>
+                    )
+                })}
+            </>
+            }
         </div>
     );
 }
