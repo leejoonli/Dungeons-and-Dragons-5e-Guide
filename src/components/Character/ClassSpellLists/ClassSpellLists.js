@@ -8,7 +8,7 @@ function ClassSpellLists(props) {
     // depending on the class name use a different url path and count number
     // useEffect to fetch spell list information from api
     return (
-        <div>
+        <div className={styles.classSpellContainter}>
             <ClassSpellList classId={`bard`}/>
             <ClassSpellList classId={`cleric`}/>
             <ClassSpellList classId={`druid`}/>

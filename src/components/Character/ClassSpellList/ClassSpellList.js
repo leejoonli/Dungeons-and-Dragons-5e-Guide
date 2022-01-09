@@ -99,15 +99,15 @@ function ClassSpellList(props) {
     }, []);
 
     return (
-        <div className={styles.classSpellContainter}>
+        <div>
             {classSpellList &&
-            <div>
+            <>
                 {/* https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript */}
                 <h2>{props.classId.charAt(0).toUpperCase() + props.classId.slice(1)}</h2>
                 {classSpellList.map((element, index) => {
                     return (
                         <div key={`${element.level}-${index}`}>
-                            {element.level === 0 ? <h3>Cantrip</h3> : <h3>Level {element.level}</h3>}
+                            {(element.level === 0 && element.spell_list.length !== 0) ? <h3>Cantrip</h3> : element.spell_list.length !== 0 ? <h3>Level {element.level}</h3> : null}
                             {element.spell_list.map((element, index) => {
                                 return (
                                     <div key={`${element.slug}-${index}`}>
@@ -118,7 +118,7 @@ function ClassSpellList(props) {
                         </div>
                     )
                 })}
-            </div>
+            </>
             }
         </div>
     );
