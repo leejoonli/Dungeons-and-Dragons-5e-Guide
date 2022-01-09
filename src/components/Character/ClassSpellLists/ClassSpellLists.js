@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassSpellList from '../ClassSpellList/ClassSpellList';
+import styles from './ClassSpellLists.module.css';
 
 function ClassSpellLists(props) {
     // need to get the class name

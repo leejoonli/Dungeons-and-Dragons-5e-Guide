@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './SpellList.module.css';
 
 function Spells(props) {
     // create an array of objects to organize list of spells from api
@@ -70,7 +71,7 @@ function Spells(props) {
     }, []);
     
     return (
-        <div>
+        <div className={styles.listContainer}>
             {spells &&
             <>
                 {spells.map((element, index) => {

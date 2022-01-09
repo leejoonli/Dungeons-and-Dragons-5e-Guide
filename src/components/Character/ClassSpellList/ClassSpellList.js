@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './ClassSpellList.module.css';
 
 function ClassSpellList(props) {
     // initial state to hold class spell list data
@@ -98,9 +99,9 @@ function ClassSpellList(props) {
     }, []);
 
     return (
-        <div>
+        <div className={styles.classSpellContainter}>
             {classSpellList &&
-            <>
+            <div>
                 {/* https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript */}
                 <h2>{props.classId.charAt(0).toUpperCase() + props.classId.slice(1)}</h2>
                 {classSpellList.map((element, index) => {
@@ -117,7 +118,7 @@ function ClassSpellList(props) {
                         </div>
                     )
                 })}
-            </>
+            </div>
             }
         </div>
     );
