@@ -11,6 +11,7 @@ import Stats from './components/Character/Stats/Stats';
 import AbilityScores from './components/Character/AbilityScores/AbilityScores';
 import Alignments from './components/Character/Alignments/Alignments';
 import Backgrounds from './components/Character/Backgrounds/Backgrounds';
+import Skills from './components/Character/Skills/Skills';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/character/stats/ability-scores" element={<AbilityScores />} />
         <Route path="/character/stats/alignments" element={<Alignments />} />
         <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
+        <Route path="/character/stats/skills" element={<Skills />} />
       </Routes>
       {/* <GameRulesAndMechanics /> */}
     </main>
