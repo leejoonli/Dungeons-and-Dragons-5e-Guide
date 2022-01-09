@@ -9,16 +9,7 @@ function Character(props) {
         <div>
             <h2><Link to="/character/classes">Classes</Link></h2>
             <h2><Link to='/character/races'>Races</Link></h2>
-            {/* <h2>Stats</h2>
-            <div>
-                {(stats === null) ? null : stats.map((element, index) => {
-                    return (
-                        <div key={`${element.index}-${index}`}>
-                            {element.name}
-                        </div>
-                    )
-                })}
-            </div> */}
+            <h2><Link to='/character/stats'>Character Statistics</Link></h2>
         </div>
     );
 }

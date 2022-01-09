@@ -1,20 +1,20 @@
 App
     Home
         Character
-            Classes
+            Classes check
                 classes (API call)
                     proficiencies
                     subclasses
                         features
                     features
-            Races
+            Races check
                 races (API call)
                     subraces
                         proficiencies
                     proficiencies
                     traits
                     languages
-            Stats (API call)
+            Stats (API call) <- YOU ARE HERE
                 ability scores
                 alignments
                 backgrounds

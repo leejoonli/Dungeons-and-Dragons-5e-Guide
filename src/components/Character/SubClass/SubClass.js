@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Feature from '../Feature/Feature';
 
 function SubClass(props) {
+    // state to store subClass data and the data on its levels
     const [subClass, setSubClass] = useState(null);
     const [subClassLevels, setSubClassLevels] = useState(null);
 
+    // useEffect to fetch data from api
     useEffect(() => {
         fetch(`https://www.dnd5eapi.co/api/subclasses/${props.subclass}`)
             .then(res => res.json())
