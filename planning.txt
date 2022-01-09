@@ -15,11 +15,11 @@ App
                     traits
                     languages
             Stats (API call)
-                ability scores  <- YOU ARE HERE
+                ability scores
                 alignments
                 backgrounds
                 skills
-            Spells
+            Spells  <- YOU ARE HERE
                 class spell lists
         Game Rules and Mechanics
 

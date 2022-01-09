@@ -12,16 +12,13 @@ import AbilityScores from './components/Character/AbilityScores/AbilityScores';
 import Alignments from './components/Character/Alignments/Alignments';
 import Backgrounds from './components/Character/Backgrounds/Backgrounds';
 import Skills from './components/Character/Skills/Skills';
+import Spells from './components/Character/Spells/Spells';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
 
 function App() {
   return (
     <main>
-      <h1>
-        <Link to="/">
-          Home
-        </Link>
-      </h1>
+      <h1><Link to="/">Home</Link></h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/character" element={<Character />} />
@@ -34,6 +31,7 @@ function App() {
         <Route path="/character/stats/alignments" element={<Alignments />} />
         <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
         <Route path="/character/stats/skills" element={<Skills />} />
+        <Route path="/character/spells" element={<Spells />} />
       </Routes>
       {/* <GameRulesAndMechanics /> */}
     </main>
