@@ -17,8 +17,14 @@ function Rule(props) {
         <div>
             {rule &&
             <>
-                <h2>{rule[2]}</h2>
-                {/* <p>{rule.desc}</p> */}
+                {rule.map((element, index) => {
+                    return (
+                        <div key={`${element.charAt(0)}-${index}`}>
+                            {element ? <p>{element.replace('\n', ':')}</p> : null}
+                        </div>
+                    )
+                })}
+                <p>{rule.desc}</p>
             </>
             }
         </div>

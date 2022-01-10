@@ -21,12 +21,15 @@ App
                 skills
             Spells
                 class spell lists 
-        Game Rules and Mechanics <- YOU ARE HERE
+        Game Rules and Mechanics 
+        
+CSS <- YOU ARE HERE
 
 BUGS TO SQUASH
 add quanitity to equipment when available
 add (if proficient to use equipment) - damn clerics ruining everything
 repeating class descriptions
+game rule descriptions displaying '------'
 
 THINGS TO DO
 add multiclass information to game mechanics section
