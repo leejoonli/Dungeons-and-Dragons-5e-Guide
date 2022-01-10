@@ -8,3 +8,16 @@
 .siteDisplay {
     display: flex;
 }
+
+.appAccordion {
+    width: 20vw;
+}
+
+.appAccordionBody {
+    display: flex;
+    padding: 10px;
+}
+
+.infoDisplay {
+    width: 80vw;
+}

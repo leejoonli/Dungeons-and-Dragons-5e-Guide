@@ -1,5 +1,9 @@
 .subNavBar {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     border: 1px solid red;
-    width: 20vw;
+    flex-basis: 100%;
+}
+
+.classesAccordionBody {
+    padding: 10px;
 }

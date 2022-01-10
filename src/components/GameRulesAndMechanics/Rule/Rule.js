@@ -22,9 +22,9 @@ function Rule(props) {
         <div>
             {rule &&
             <>
-                {rule.map((element) => {
+                {rule.map((element, index) => {
                     return (
-                        <div>
+                        <div key={`${element}-${index}`}>
                             {element.map((element, index) => {
                                 return (
                                     <p key={`rule-${index}`}>{element}</p>

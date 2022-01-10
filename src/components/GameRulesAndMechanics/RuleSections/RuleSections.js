@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function RuleSections(props) {
     const [adventuringRuleSections, setadventuringRuleSections] = useState(null);
 
-    const { id } = useParams();
-
     useEffect(() => {
-        fetch(`https://www.dnd5eapi.co/api/rules/${id}`)
+        fetch(`https://www.dnd5eapi.co/api/rules/${props.ruleId}`)
             .then(res => res.json())
             .then(res => setadventuringRuleSections(res))
             .catch(console.error);
-    }, [id]);
+    }, [props.ruleId]);
 
     return (
         <div>

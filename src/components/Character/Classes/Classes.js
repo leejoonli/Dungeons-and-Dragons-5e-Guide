@@ -19,7 +19,7 @@ function Class(props) {
             {(classes === null) ? null : classes.map((element, index) => {
                 return (
                     <div key={`${element.index}-${index}`} className={styles.classListContainer}>
-                        <Link to={`/character/classes/${element.index}`}>
+                        <Link to={`/character/classes/${element.index}`} className={styles.testing}>
                             {element.name}
                         </Link>
                     </div>

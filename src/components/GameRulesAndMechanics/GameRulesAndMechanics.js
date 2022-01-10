@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Accordion from 'react-bootstrap/Accordion';
+import RuleSections from './RuleSections/RuleSections';
+import styles from './GameRulesAndMechanics.module.css';
 
 function GameRulesAndMechanics(props) {
     const [ruleSections, setRuleSections] = useState(null);
@@ -12,18 +14,25 @@ function GameRulesAndMechanics(props) {
     }, []);
 
     return (
-        <div>
-            {ruleSections &&
-            <>
-                {ruleSections.results.map((element, index) => {
-                    return (
-                        <div key={`${element.index}-${index}`}>
-                            <h2><Link to={`/rules-and-mechanics/${element.index}`}>{element.name}</Link></h2>
-                        </div>
-                    )
-                })}
-            </>
-            }
+        <div className={styles.gameRulesAndMechanicsAccordion}>
+            <Accordion>
+                {ruleSections &&
+                <>
+                    {ruleSections.results.map((element, index) => {
+                        return (
+                            <Accordion.Item eventKey={index} key={`${element.index}-${index}`}>
+                                <Accordion.Header>
+                                    <h2>{element.name}</h2>
+                                </Accordion.Header>
+                                <Accordion.Body className={styles.ruleSectionAccordionBody}>
+                                    <RuleSections ruleId={element.index} />
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        )
+                    })}
+                </>
+                }
+            </Accordion>
         </div>
     );
 }

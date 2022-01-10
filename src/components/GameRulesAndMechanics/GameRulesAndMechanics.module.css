@@ -1,0 +1,9 @@
+.gameRulesAndMechanicsAccordion {
+    flex-basis: 100%;
+    padding: 0px;
+    border: 1px solid red;
+}
+
+.ruleSectionAccordionBody {
+    padding: 10px;
+}

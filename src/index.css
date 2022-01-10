@@ -48,8 +48,4 @@ table {
 	border-spacing: 0;
 }
 
-* {
-	text-decoration: none;
-	color: black;
-	border: 1px solid red;
-}
+@import 'bootstrap/dist/css/bootstrap.min.css';

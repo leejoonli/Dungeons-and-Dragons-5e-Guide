@@ -14,7 +14,7 @@ function Races(props) {
     }, []);
 
     return (
-        <>
+        <div>
             {races && races.map((element, index) => {
                 return (
                     <div key={`${element.index}-${index}`}>
@@ -24,7 +24,7 @@ function Races(props) {
                     </div>
                 )
             })}
-        </>
+        </div>
     );
 }
 
