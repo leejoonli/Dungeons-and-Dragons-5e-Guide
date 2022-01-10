@@ -230,7 +230,7 @@ function Class(props) {
                 {!dndClass.proficiency_choices[1] ? null:
                 <>
                     <h4 className={styles.classHeaderFour}>Tools:</h4>
-                    <p>Choose: {dndClass.proficiency_choices[1].choose}</p>
+                    <p className={styles.choose}>Choose: {dndClass.proficiency_choices[1].choose}</p>
                     <ul className={styles.listContainer}>
                         {dndClass.proficiency_choices[1].from.map((element, index) => {
                             return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>

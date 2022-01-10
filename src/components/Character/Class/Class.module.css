@@ -8,6 +8,10 @@
     display: flex;
     justify-content: space-around;
     padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: none;
+    margin-top: 20px;
 }
 
 .name {
@@ -15,7 +19,8 @@
 }
 
 .gridContainer {
-    border: 2px solid red;
+    border: 2px solid black;
+    border-radius: 0px 0px 5px 5px;
     display: grid;
     width: 40vw;
     grid-template-columns: repeat(2, 1fr);
