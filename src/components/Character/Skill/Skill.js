@@ -13,14 +13,14 @@ function Skill(props) {
     }, [props.skillId]);
 
     return (
-        <>
+        <div>
             {skill &&
             <>
                 <h2>{skill.name} - {skill.ability_score.name}</h2>
                 <p>{skill.desc[0]}</p>
             </>
             }
-        </>
+        </div>
     );
 }
 

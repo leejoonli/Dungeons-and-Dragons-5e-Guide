@@ -17,7 +17,7 @@ function Spell(props) {
     }, [id]);
 
     return (
-        <>
+        <div>
             {spell &&
             <>
                 <h3>{spell.name}</h3>
@@ -29,7 +29,7 @@ function Spell(props) {
                 <p>{spell.desc}</p>
             </>
             }
-        </>
+        </div>
     );
 }
 

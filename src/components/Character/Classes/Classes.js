@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Classes.module.css';
 
 function Class(props) {
     // create state to hold classes
@@ -14,17 +15,17 @@ function Class(props) {
     }, []);
 
     return (
-        <>
+        <div>
             {(classes === null) ? null : classes.map((element, index) => {
                 return (
-                    <div key={`${element.index}-${index}`}>
+                    <div key={`${element.index}-${index}`} className={styles.classListContainer}>
                         <Link to={`/character/classes/${element.index}`}>
                             {element.name}
                         </Link>
                     </div>
                 )
             })}
-        </>
+        </div>
     );
 }
 

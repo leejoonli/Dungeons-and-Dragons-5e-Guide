@@ -1,0 +1,10 @@
+.siteHeader {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid red;
+}
+
+.siteDisplay {
+    display: flex;
+}

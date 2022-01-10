@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import styles from './App.module.css';
 
 import Home from './components/Home/Home';
 import Character from './components/Character/Character';
@@ -23,27 +24,30 @@ import Rule from './components/GameRulesAndMechanics/Rule/Rule';
 function App() {
   return (
     <main>
-      <h1><Link to="/">Home</Link></h1>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/character" element={<Character />} />
-        <Route path="/character/classes" element={<Classes />} />
-        <Route path="/character/classes/:id" element={<Class />} />
-        <Route path="/character/races" element={<Races />} />
-        <Route path="/character/races/:id" element={<Race />} />
-        <Route path="/character/stats" element={<Stats />} />
-        <Route path="/character/stats/ability-scores" element={<AbilityScores />} />
-        <Route path="/character/stats/alignments" element={<Alignments />} />
-        <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
-        <Route path="/character/stats/skills" element={<Skills />} />
-        <Route path="/character/spells" element={<SpellLists />} />
-        <Route path="/character/spells/spell-list" element={<SpellList />} />
-        <Route path="/character/spells/spell-list-by-class" element={<ClassSpellLists />} />
-        <Route path="/character/spells/:id" element={<Spell />} />
-        <Route path="/rules-and-mechanics" element={<GameRulesAndMechanics />} />
-        <Route path="/rules-and-mechanics/:id" element={<RuleSections />} />
-        <Route path="/rules-and-mechanics/:id/:type" element={<Rule />} />
-      </Routes>
+      <h1 className={styles.siteHeader}><Link to="/">Dungeons and Dragons</Link></h1>
+      <div className={styles.siteDisplay}>
+        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/character" element={<Character />} />
+          <Route path="/character/classes" element={<Classes />} />
+          <Route path="/character/classes/:id" element={<Class />} />
+          <Route path="/character/races" element={<Races />} />
+          <Route path="/character/races/:id" element={<Race />} />
+          <Route path="/character/stats" element={<Stats />} />
+          <Route path="/character/stats/ability-scores" element={<AbilityScores />} />
+          <Route path="/character/stats/alignments" element={<Alignments />} />
+          <Route path="/character/stats/backgrounds" element={<Backgrounds />} />
+          <Route path="/character/stats/skills" element={<Skills />} />
+          <Route path="/character/spells" element={<SpellLists />} />
+          <Route path="/character/spells/spell-list" element={<SpellList />} />
+          <Route path="/character/spells/spell-list-by-class" element={<ClassSpellLists />} />
+          <Route path="/character/spells/:id" element={<Spell />} />
+          <Route path="/rules-and-mechanics" element={<GameRulesAndMechanics />} />
+          <Route path="/rules-and-mechanics/:id" element={<RuleSections />} />
+          <Route path="/rules-and-mechanics/:id/:type" element={<Rule />} />
+        </Routes>
+      </div>
     </main>
   );
 }

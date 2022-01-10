@@ -24,11 +24,13 @@ function Rule(props) {
             <>
                 {rule.map((element) => {
                     return (
-                        element.map((element, index) => {
-                            return (
-                                <p key={`rule-${index}`}>{element}</p>
-                            )
-                        })
+                        <div>
+                            {element.map((element, index) => {
+                                return (
+                                    <p key={`rule-${index}`}>{element}</p>
+                                )
+                            })}
+                        </div>
                     );
                 })}
             </>

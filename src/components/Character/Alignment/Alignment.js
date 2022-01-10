@@ -15,10 +15,10 @@ function Alignment(props) {
     return (
         <>
             {alignment &&
-            <>
+            <div>
                 <h2>{alignment.name}</h2>
                 <p>{alignment.desc}</p>
-            </>
+            </div>
             }
         </>
     );
