@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Alignment.module.css';
 
 function Alignment(props) {
     // state to hold alignment data from api
@@ -15,10 +16,10 @@ function Alignment(props) {
     return (
         <>
             {alignment &&
-            <div>
-                <h2>{alignment.name}</h2>
-                <p>{alignment.desc}</p>
-            </div>
+            <>
+                <h2 className={styles.headerTwo}>{alignment.name}</h2>
+                <p className={styles.desc}>{alignment.desc}</p>
+            </>
             }
         </>
     );

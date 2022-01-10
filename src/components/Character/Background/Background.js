@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Background.module.css';
 
 function Background(props) {
     // state to store the list of backgrounds from api
@@ -17,16 +18,16 @@ function Background(props) {
         <div>
             {background &&
             <>
-                <h2>{background.name}</h2>
-                <p>{background.desc}</p>
-                <h2>Skill Proficiencies</h2>
-                <p>{background.skill_proficiencies}</p>
-                <h2>Language</h2>
-                <p>{background.languages}</p>
-                <h2>Equipment</h2>
-                <p>{background.equipment}</p>
-                <h2>{background.feature}</h2>
-                <p>{background.feature_desc}</p>
+                <h2 className={styles.headerTwo}>{background.name}</h2>
+                <p className={styles.desc}>{background.desc}</p>
+                <h3 className={styles.headerThree}>Skill Proficiencies</h3>
+                <p className={styles.desc}>{background.skill_proficiencies}</p>
+                <h3 className={styles.headerThree}>Language</h3>
+                <p className={styles.desc}>{background.languages}</p>
+                <h3 className={styles.headerThree}>Equipment</h3>
+                <p className={styles.desc}>{background.equipment}</p>
+                <h3 className={styles.headerThree}>{background.feature}</h3>
+                <p className={styles.desc}>{background.feature_desc}</p>
             </>
             }
         </div>

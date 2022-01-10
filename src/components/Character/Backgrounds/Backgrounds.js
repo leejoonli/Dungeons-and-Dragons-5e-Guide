@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Background from '../Background/Background';
+import styles from './Backgrounds.module.css';
 
 function Backgrounds(props) {
     // state to store the list of backgrounds from api
@@ -15,7 +16,7 @@ function Backgrounds(props) {
     }, []);
 
     return (
-        <div>
+        <div className={styles.backgroundContainer}>
             {backgrounds &&
             <>
                 {backgrounds.results.map((element, index) => {

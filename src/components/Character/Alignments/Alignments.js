@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Alignment from '../Alignment/Alignment';
+import styles from './Alignments.module.css';
 
 function Alignments(props) {
     // state to hold the list of alignments from api
@@ -14,7 +15,7 @@ function Alignments(props) {
     }, []);
 
     return (
-        <>
+        <div className={styles.alignmentContainer}>
             {alignments &&
             <>
                 {alignments.results.map((element, index) => {
@@ -26,7 +27,7 @@ function Alignments(props) {
                 })}
             </>
             }
-        </>
+        </div>
     );
 }
 
