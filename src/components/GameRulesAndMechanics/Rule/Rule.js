@@ -9,22 +9,28 @@ function Rule(props) {
     useEffect(() => {
         fetch(`https://www.dnd5eapi.co/api/rule-sections/${type}`)
             .then(res => res.json())
-            .then(res => setRule(res.desc.split('#')))
+            .then(res => {
+                const temp = res.desc.split('#').filter(element => element.length > 0)
+                setRule(temp.map((element) => {
+                    return element.split('\n').filter(element => element.length > 0)
+                }))
+            })
             .catch(console.error)
     }, [type]);
-
+    // setRule(res.desc.split('#'))
     return (
         <div>
             {rule &&
             <>
                 {rule.map((element, index) => {
                     return (
-                        <div key={`${element.charAt(0)}-${index}`}>
-                            {element ? <p>{element.replace('\n', ': ')}</p> : null}
-                        </div>
-                    )
+                        element.map((element, index) => {
+                            return (
+                                <p key={`rule-${index}`}>{element}</p>
+                            )
+                        })
+                    );
                 })}
-                <p>{rule.desc}</p>
             </>
             }
         </div>
