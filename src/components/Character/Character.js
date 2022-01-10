@@ -12,25 +12,25 @@ function Character(props) {
             <Accordion>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Classes</Accordion.Header>
-                    <Accordion.Body className={styles.classesAccordionBody}>
+                    <Accordion.Body className={styles.characterAccordionBody}>
                         <Classes />
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header>Races</Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className={styles.characterAccordionBody}>
                         <Races />
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                     <Accordion.Header>Character Statistics</Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className={styles.characterAccordionBody}>
                         <Stats />
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
                     <Accordion.Header>Spells</Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className={styles.characterAccordionBody}>
                         <SpellLists />
                     </Accordion.Body>
                 </Accordion.Item>

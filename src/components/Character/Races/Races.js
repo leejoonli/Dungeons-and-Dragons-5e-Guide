@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Races.module.css'
 
 function Races(props) {
     // create state to hold races
@@ -17,8 +18,8 @@ function Races(props) {
         <div>
             {races && races.map((element, index) => {
                 return (
-                    <div key={`${element.index}-${index}`}>
-                        <Link to={`/character/races/${element.index}`}>
+                    <div key={`${element.index}-${index}`} className={styles.racesContainer}>
+                        <Link to={`/character/races/${element.index}`} className={styles.link}>
                             {element.name}
                         </Link>
                     </div>

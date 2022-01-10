@@ -27,6 +27,10 @@ function Class(props) {
                         let finalBarbTempArr = [];
                         const tempBarbArr = res.filter((element) => element.class_specific);
                         setDndClassLevels(tempBarbArr);
+                        finalBarbTempArr.push('Level');
+                        finalBarbTempArr.push('Proficiency Bonus');
+                        finalBarbTempArr.push('Rages');
+                        finalBarbTempArr.push('Rage Damage');
                         for(let i = 0; i < tempBarbArr.length; i++) {
                             finalBarbTempArr.push(tempBarbArr[i].level);
                             finalBarbTempArr.push(`+${tempBarbArr[i].prof_bonus}`);
@@ -39,6 +43,11 @@ function Class(props) {
                         let finalMonkTempArr = [];
                         const tempMonkArr = res.filter((element) => element.class_specific);
                         setDndClassLevels(tempMonkArr);
+                        finalMonkTempArr.push('Level');
+                        finalMonkTempArr.push('Proficiency Bonus');
+                        finalMonkTempArr.push('Martial Arts');
+                        finalMonkTempArr.push('Ki Points');
+                        finalMonkTempArr.push('Unarmored Movement');
                         for(let i = 0; i < tempMonkArr.length; i++) {
                             finalMonkTempArr.push(tempMonkArr[i].level);
                             finalMonkTempArr.push(`+${tempMonkArr[i].prof_bonus}`);
@@ -52,6 +61,8 @@ function Class(props) {
                         let finalFighterTempArr = [];
                         const tempFighterArr = res.filter((element) => element.class_specific);
                         setDndClassLevels(tempFighterArr);
+                        finalFighterTempArr.push('Level');
+                        finalFighterTempArr.push('Proficiency Bonus');
                         for(let i = 0; i < tempFighterArr.length; i++) {
                             finalFighterTempArr.push(tempFighterArr[i].level);
                             finalFighterTempArr.push(`+${tempFighterArr[i].prof_bonus}`);
@@ -62,6 +73,9 @@ function Class(props) {
                         let finalRogueTempArr = [];
                         const tempRogueArr = res.filter((element) => element.class_specific);
                         setDndClassLevels(tempRogueArr);
+                        finalRogueTempArr.push('Level');
+                        finalRogueTempArr.push('Proficiency Bonus');
+                        finalRogueTempArr.push('Sneak Attack');
                         for(let i = 0; i < tempRogueArr.length; i++) {
                             finalRogueTempArr.push(tempRogueArr[i].level);
                             finalRogueTempArr.push(`+${tempRogueArr[i].prof_bonus}`);
@@ -73,6 +87,13 @@ function Class(props) {
                         let finalWarlockTempArr = [];
                         const tempWarlockArr = res.filter((element) => element.class_specific);
                         setDndClassLevels(tempWarlockArr);
+                        finalWarlockTempArr.push('Level');
+                        finalWarlockTempArr.push('Proficiency Bonus');
+                        finalWarlockTempArr.push('Cantrips Known');
+                        finalWarlockTempArr.push('Spells Known');
+                        finalWarlockTempArr.push('Spell Slots');
+                        finalWarlockTempArr.push('Slot Level');
+                        finalWarlockTempArr.push('Invocations Known');
                         for(let i = 0; i < tempWarlockArr.length; i++) {
                             finalWarlockTempArr.push(tempWarlockArr[i].level);
                             finalWarlockTempArr.push(`+${tempWarlockArr[i].prof_bonus}`);
@@ -94,6 +115,65 @@ function Class(props) {
                         let finalCasterTempArr = [];
                         const tempCasterArr = res.filter((element) => element.spellcasting);
                         setDndClassLevels(tempCasterArr);
+                        finalCasterTempArr.push('Level');
+                        finalCasterTempArr.push('Proficiency Bonus');
+                        if (id === 'paladin') {
+                            for(let i = 1; i < 6; i++) {
+                                if(i === 1) {
+                                    finalCasterTempArr.push(`${i}st`);
+                                } else if(i === 2) {
+                                    finalCasterTempArr.push(`${i}nd`);
+                                }
+                                else if(i === 3) {
+                                    finalCasterTempArr.push(`${i}rd`);
+                                } else {
+                                    finalCasterTempArr.push(`${i}th`);
+                                }
+                            }
+                        } else if(id === 'ranger') {
+                            finalCasterTempArr.push(`Spells Known`);
+                            for(let i = 1; i < 6; i++) {
+                                if(i === 1) {
+                                    finalCasterTempArr.push(`${i}st`);
+                                } else if(i === 2) {
+                                    finalCasterTempArr.push(`${i}nd`);
+                                }
+                                else if(i === 3) {
+                                    finalCasterTempArr.push(`${i}rd`);
+                                } else {
+                                    finalCasterTempArr.push(`${i}th`);
+                                }
+                            }
+                        } else if(id === 'sorcerer' || id === 'bard') {
+                            finalCasterTempArr.push(`Cantrips Known`);
+                            finalCasterTempArr.push(`Spells Known`);
+                            for(let i = 1; i < 10; i++) {
+                                if(i === 1) {
+                                    finalCasterTempArr.push(`${i}st`);
+                                } else if(i === 2) {
+                                    finalCasterTempArr.push(`${i}nd`);
+                                }
+                                else if(i === 3) {
+                                    finalCasterTempArr.push(`${i}rd`);
+                                } else {
+                                    finalCasterTempArr.push(`${i}th`);
+                                }
+                            }
+                        } else if(id === 'wizard' || id === 'cleric' || id === 'druid') {
+                            finalCasterTempArr.push(`Cantrips Known`);
+                            for(let i = 1; i < 10; i++) {
+                                if(i === 1) {
+                                    finalCasterTempArr.push(`${i}st`);
+                                } else if(i === 2) {
+                                    finalCasterTempArr.push(`${i}nd`);
+                                }
+                                else if(i === 3) {
+                                    finalCasterTempArr.push(`${i}rd`);
+                                } else {
+                                    finalCasterTempArr.push(`${i}th`);
+                                }
+                            }
+                        }
                         for(let i = 0; i < tempCasterArr.length; i++) {
                             finalCasterTempArr.push(tempCasterArr[i].level);
                             finalCasterTempArr.push(`+${tempCasterArr[i].prof_bonus}`);
