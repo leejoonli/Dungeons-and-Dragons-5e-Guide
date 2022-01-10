@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Language.module.css';
 
 function Language(props) {
     // state to store data from api
@@ -19,13 +20,13 @@ function Language(props) {
                 {language.typical_speakers.map((element, index) => {
                     return (
                         <div key={`${element.index}-${index}`}>
-                            <h4>Typical Speakers</h4>
-                            <p>{element}</p>
+                            <h4 className={styles.speakers}>Typical Speakers:</h4>
+                            <p className={styles.desc}>{element}</p>
                         </div>
                     )
                 })}
-                <h4>Type</h4>
-                <p>{language.type}</p>
+                <h4 className={styles.headerFour}>Type:</h4>
+                <p className={styles.desc}>{language.type}</p>
             </>
             }
         </>

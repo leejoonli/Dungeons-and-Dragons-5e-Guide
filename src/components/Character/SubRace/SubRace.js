@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Trait from '../Trait/Trait';
+import styles from './SubRace.module.css';
 
 function SubRace(props) {
     const [subRace, setSubRace] = useState(null);
@@ -15,14 +16,14 @@ function SubRace(props) {
         <>
             {subRace &&
             <div>
-                <p>{subRace.desc}</p>
+                <p className={styles.subRaceDesc}>{subRace.desc}</p>
                 {subRace.ability_bonuses &&
                 <>
-                    <h4>Ability Bonuses</h4>
+                    <h4 className={styles.headerFour}>Ability Bonuses</h4>
                     {subRace.ability_bonuses.map((element, index) => {
                         return (
                             <div key={`${element.ability_score.index}-${index}`}>
-                                <p>+{element.bonus} to {element.ability_score.name}</p>
+                                <p className={styles.abilityBonus}>+{element.bonus} to {element.ability_score.name}</p>
                             </div>
                         )
                     })}
@@ -33,7 +34,7 @@ function SubRace(props) {
                     {subRace.racial_traits.map((element, index) => {
                         return (
                             <div key={`${element.index}-${index}`}>
-                                <h4>Racial Traits</h4>
+                                <h4 className={styles.headerFour}>Racial Traits</h4>
                                 <Trait traitId={element.index} />
                             </div>
                         )
@@ -42,7 +43,7 @@ function SubRace(props) {
                 }
                 {subRace.starting_proficienies &&
                 <>
-                    <h4>Starting Proficiencies</h4>
+                    <h4 className={styles.headerFour}>Starting Proficiencies</h4>
                     {subRace.starting_proficienies.map((element, index) => {
                         return (
                             <div key={`${element.index}-${index}`}>
@@ -54,14 +55,14 @@ function SubRace(props) {
                 }
                 {subRace.language_options &&
                 <>
-                    <h4>Choose {subRace.language_options.choose} from:</h4>
-                    {subRace.language_options.from.map((element, index) => {
-                        return (
-                            <div key={`${element.index}-${index}`}>
-                                {element.name}
-                            </div>
-                        )
-                    })}
+                    <h4 className={styles.headerFour}>Choose {subRace.language_options.choose} from:</h4>
+                    <ul className={styles.listContainer}>
+                        {subRace.language_options.from.map((element, index) => {
+                            return (
+                                <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>
+                            )
+                        })}
+                    </ul>
                 </>
                 }
             </div>

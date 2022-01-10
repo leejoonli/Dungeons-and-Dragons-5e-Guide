@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './AbilityScore.module.css';
 
 function AbilityScore(props) {
     // state to store ability score data
@@ -16,20 +17,20 @@ function AbilityScore(props) {
         <div>
             {abilityScore &&
             <>
-                <h2>{abilityScore.full_name}</h2>
+                <h2 className={styles.headerTwo}>{abilityScore.full_name}</h2>
                 {abilityScore.desc.map((element, index) => {
                     return (
-                        <div key={`AS-${index}`}>
-                            <p>{element}</p>
-                        </div>
+                        <p key={`AS-${index}`} className={styles.desc}>{element}</p>
                     )
                 })}
-                <h3>Affected Skills</h3>
-                {abilityScore.skills.map((element, index) => {
-                    return (
-                        <div key={`SKILL-${index}`}>{element.name}</div>
-                    )
-                })}
+                <h3 className={styles.headerThree}>Affected Skills</h3>
+                <ul className={styles.listContainer}>
+                    {abilityScore.skills.map((element, index) => {
+                        return (
+                            <li key={`SKILL-${index}`} className={styles.listItem}>{element.name}</li>
+                        )
+                    })}
+                </ul>
             </>
             }
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AbilityScore from '../AbilityScore/AbilityScore';
+import styles from './AbilityScores.module.css';
 
 function AbilityScores(props) {
     // state to store ability scores
@@ -14,7 +15,7 @@ function AbilityScores(props) {
     }, []);
 
     return (
-        <div>
+        <div className={styles.abilityScoreContainer}>
             {abilityScores &&
             <>
                 {abilityScores.results.map((element, index) => {

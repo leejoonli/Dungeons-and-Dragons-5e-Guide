@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Trait.module.css';
 
 function Trait(props) {
     const [trait, setTrait] = useState(null);
@@ -14,10 +15,10 @@ function Trait(props) {
         <>
             {trait &&
             <>
-                <h4>{trait.name}</h4>
+                <h4 className={styles.headerFour}>{trait.name}</h4>
                 {trait.desc.map((element, index) => {
                     return (
-                        <p key={`${index}`}>{element}</p>
+                        <p key={`${index}`} className={styles.traitDesc}>{element}</p>
                     )
                 })}
             </>
