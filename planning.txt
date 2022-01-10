@@ -20,8 +20,8 @@ App
                 backgrounds
                 skills
             Spells
-                class spell lists <- YOU ARE HERE
-        Game Rules and Mechanics
+                class spell lists 
+        Game Rules and Mechanics <- YOU ARE HERE
 
 BUGS TO SQUASH
 add quanitity to equipment when available

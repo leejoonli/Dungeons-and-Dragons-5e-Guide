@@ -17,6 +17,8 @@ import SpellList from './components/Character/SpellList/SpellList';
 import ClassSpellLists from './components/Character/ClassSpellLists/ClassSpellLists';
 import Spell from './components/Character/Spell/Spell';
 import GameRulesAndMechanics from './components/GameRulesAndMechanics/GameRulesAndMechanics';
+import RuleSections from './components/GameRulesAndMechanics/RuleSections/RuleSections';
+import Rule from './components/GameRulesAndMechanics/Rule/Rule';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
         <Route path="/character/spells/spell-list-by-class" element={<ClassSpellLists />} />
         <Route path="/character/spells/:id" element={<Spell />} />
         <Route path="/rules-and-mechanics" element={<GameRulesAndMechanics />} />
+        <Route path="/rules-and-mechanics/:id" element={<RuleSections />} />
+        <Route path="/rules-and-mechanics/:id/:type" element={<Rule />} />
       </Routes>
     </main>
   );

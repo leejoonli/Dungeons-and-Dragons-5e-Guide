@@ -2,23 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function GameRulesAndMechanics(props) {
-    const [appendix, setAppendix] = useState(null);
+    const [ruleSections, setRuleSections] = useState(null);
 
     useEffect(() => {
-        fetch(`https://www.dnd5eapi.co/api/rules/appendix`)
+        fetch(`https://www.dnd5eapi.co/api/rules/`)
             .then(res => res.json())
-            .then(res => setAppendix(res))
+            .then(res => setRuleSections(res))
             .catch(console.error);
     }, []);
 
     return (
         <div>
-            {appendix &&
+            {ruleSections &&
             <>
-                <h2>{appendix.name}</h2>
-                {appendix.subsections.map((element, index) => {
+                {ruleSections.results.map((element, index) => {
                     return (
-                        <h3 key={`${element.index}-${index}`}><Link to={`/rules-and-mechanics${element.index}`}>{element.name}</Link></h3>
+                        <div key={`${element.index}-${index}`}>
+                            <h2><Link to={`/rules-and-mechanics/${element.index}`}>{element.name}</Link></h2>
+                        </div>
                     )
                 })}
             </>
