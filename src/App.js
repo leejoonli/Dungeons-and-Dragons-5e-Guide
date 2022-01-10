@@ -38,8 +38,8 @@ function App() {
         <Route path="/character/spells/spell-list" element={<SpellList />} />
         <Route path="/character/spells/spell-list-by-class" element={<ClassSpellLists />} />
         <Route path="/character/spells/:id" element={<Spell />} />
+        <Route path="/rules-and-mechanics" element={<GameRulesAndMechanics />} />
       </Routes>
-      {/* <GameRulesAndMechanics /> */}
     </main>
   );
 }
