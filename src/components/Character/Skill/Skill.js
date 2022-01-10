@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Skill.module.css';
 
 function Skill(props) {
     // state to store list of skills from api
@@ -16,8 +17,8 @@ function Skill(props) {
         <div>
             {skill &&
             <>
-                <h2>{skill.name} - {skill.ability_score.name}</h2>
-                <p>{skill.desc[0]}</p>
+                <h2 className={styles.header}>{skill.name} - {skill.ability_score.name}</h2>
+                <p className={styles.desc}>{skill.desc[0]}</p>
             </>
             }
         </div>

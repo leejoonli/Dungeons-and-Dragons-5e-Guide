@@ -25,7 +25,7 @@ import Rule from './components/GameRulesAndMechanics/Rule/Rule';
 function App() {
   return (
     <main>
-      <h1 className={styles.siteHeader}><Link to="/">Dungeons and Dragons</Link></h1>
+      <h1 className={styles.siteHeader}><Link to="/" className={styles.homeLink}>Dungeons and Dragons</Link></h1>
       <div className={styles.siteDisplay}>
         <div className={styles.appAccordion}>
           <Accordion>
@@ -43,7 +43,6 @@ function App() {
             </Accordion.Item>
           </Accordion>
         </div>
-        {/* <Home /> */}
         <div className={styles.infoDisplay}>
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}

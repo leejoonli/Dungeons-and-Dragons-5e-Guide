@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './Rule.module.css';
 
 function Rule(props) {
     const [rule, setRule] = useState(null);
@@ -19,7 +20,7 @@ function Rule(props) {
     }, [type]);
 
     return (
-        <div>
+        <div className={styles.ruleContainer}>
             {rule &&
             <>
                 {rule.map((element, index) => {
@@ -27,7 +28,7 @@ function Rule(props) {
                         <div key={`${element}-${index}`}>
                             {element.map((element, index) => {
                                 return (
-                                    <p key={`rule-${index}`}>{element}</p>
+                                    <p key={`rule-${index}`} className={styles.desc}>{element}</p>
                                 )
                             })}
                         </div>

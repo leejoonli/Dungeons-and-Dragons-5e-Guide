@@ -19,7 +19,7 @@ function RuleSections(props) {
                 {adventuringRuleSections.subsections.map((element, index) => {
                     return (
                         <div key={`${element.index}-${index}`} className={styles.linkContainer}>
-                            <h2><Link to={`/rules-and-mechanics/adventuring/${element.index}`} className={styles.link}>{element.name}</Link></h2>
+                            <h2 className={styles.header}><Link to={`/rules-and-mechanics/adventuring/${element.index}`} className={styles.link}>{element.name}</Link></h2>
                         </div>
                     )
                 })}

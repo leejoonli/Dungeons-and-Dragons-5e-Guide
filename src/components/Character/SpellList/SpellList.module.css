@@ -1,6 +1,12 @@
 .listContainer {
     display: flex;
-    /* flex-direction: column;
-    flex-wrap: wrap;
-    height: 100vh; */
+}
+
+.header {
+    font-size: 1.5rem;
+}
+
+.link {
+    text-decoration: none;
+    color: darkgray;
 }

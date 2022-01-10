@@ -77,11 +77,11 @@ function Spells(props) {
                 {spells.map((element, index) => {
                     return (
                         <div key={`${element.level}-${index}`}>
-                            {element.level === 0 ? <h2>Cantrip</h2> : <h2>Level {element.level}</h2>}
+                            {element.level === 0 ? <h2 className={styles.header}>Cantrip</h2> : <h2 className={styles.header}>Level {element.level}</h2>}
                             {element.spell_list.map((element, index) => {
                                 return (
                                     <div key={`${element.slug}-${index}`}>
-                                        <Link to={`/character/spells/${element.slug}`}>{element.name}</Link>
+                                        <Link to={`/character/spells/${element.slug}`} className={styles.link}>{element.name}</Link>
                                     </div>
                                 )
                             })}

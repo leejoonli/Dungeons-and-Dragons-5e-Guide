@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Skill from '../Skill/Skill';
+import styles from './Skills.module.css';
 
 function Skills(props) {
     // state to store list of skills from api
@@ -14,7 +15,7 @@ function Skills(props) {
     }, []);
 
     return (
-        <div>
+        <div className={styles.skillContainer}>
             {skills &&
             <>
                 {skills.results.map((element, index) => {
