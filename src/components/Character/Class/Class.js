@@ -211,15 +211,19 @@ function Class(props) {
                     {dndClassLevels.map((element, index) => {
                         return (
                             <div key={`${element.index}-${index}`}>
-                                <h3>Level: {element.level}</h3>
-                                {element.features.map((element, index) => {
-                                    return (
-                                        <div key={`${element.index}-${index}`}>
-                                            <h4>{element.name}</h4>
-                                            <Feature feature={element.index} />
-                                        </div>
-                                    )
-                                })}
+                                {element.features.length !== 0 &&
+                                <>
+                                    <h3>Level: {element.level}</h3>
+                                    {element.features.map((element, index) => {
+                                        return (
+                                            <div key={`${element.index}-${index}`}>
+                                                <h4>{element.name}</h4>
+                                                <Feature feature={element.index} />
+                                            </div>
+                                        )
+                                    })}
+                                </>
+                                }
                             </div>
                         );
                     })}
