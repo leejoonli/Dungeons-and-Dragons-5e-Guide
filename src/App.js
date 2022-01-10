@@ -5,16 +5,16 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import Home from './components/Home/Home';
 import Character from './components/Character/Character';
-import Classes from './components/Character/Classes/Classes';
+// import Classes from './components/Character/Classes/Classes';
 import Class from './components/Character/Class/Class';
-import Races from './components/Character/Races/Races';
+// import Races from './components/Character/Races/Races';
 import Race from './components/Character/Race/Race';
-import Stats from './components/Character/Stats/Stats';
+// import Stats from './components/Character/Stats/Stats';
 import AbilityScores from './components/Character/AbilityScores/AbilityScores';
 import Alignments from './components/Character/Alignments/Alignments';
 import Backgrounds from './components/Character/Backgrounds/Backgrounds';
 import Skills from './components/Character/Skills/Skills';
-import SpellLists from './components/Character/SpellLists/SpellLists';
+// import SpellLists from './components/Character/SpellLists/SpellLists';
 import SpellList from './components/Character/SpellList/SpellList';
 import ClassSpellLists from './components/Character/ClassSpellLists/ClassSpellLists';
 import Spell from './components/Character/Spell/Spell';
@@ -45,7 +45,7 @@ function App() {
         </div>
         <div className={styles.infoDisplay}>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/character" element={<Character />} />
           {/* <Route path="/character/classes" element={<Classes />} /> */}
           <Route path="/character/classes/:id" element={<Class />} />

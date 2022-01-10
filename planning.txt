@@ -23,14 +23,19 @@ App
                 class spell lists 
         Game Rules and Mechanics 
         
-CSS <- YOU ARE HERE
+CSS
 
 BUGS TO SQUASH
 add quanitity to equipment when available
 add (if proficient to use equipment) - damn clerics ruining everything
 repeating class descriptions
-game rule descriptions displaying '------'
+add spaces to game rules and mechanics components
 
 THINGS TO DO
 add multiclass information to game mechanics section
-add headers for class tables
+
+STRETCH GOALS
+add resource information
+add a 'how to'
+add all information from phb (ex. backgrounds)
+add resources from dlc books (xanathars)

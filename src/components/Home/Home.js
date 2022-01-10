@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 
 function Home(props) {
     return (
-        <div>
-            <nav>
-                <h2><Link to='/character'>Character</Link></h2>
-                <h2><Link to='/rules-and-mechanics'>Game Rules and Mechanics</Link></h2>
-            </nav>
+        <div className={styles.homeContainer}>
+            <h2 className={styles.header}>Welcome to the Dungeons and Dragons 5e Quick Guide</h2>
+            <h3 className={styles.miniHeader}>You can navigate through the site using the navigation sidebar</h3>
+            <h3 className={styles.miniHeader}>If you want to return to this page then click the "Dungeons and Dragons" header at the top of the page</h3>
+            <h3 className={styles.miniHeader}>Enjoy!</h3>
         </div>
     );
 }
