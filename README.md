@@ -5,6 +5,7 @@ My application is called D&D5e Rundown(name is work in progress).  This react bu
 This will be the link to the API documentation (It's a completely open API and requires no authentication key):
 
 http://www.dnd5eapi.co/docs/
+https://api.open5e.com/
 
 ## Example data response you plan to use
 The result of using https://www.dnd5eapi.co/api:

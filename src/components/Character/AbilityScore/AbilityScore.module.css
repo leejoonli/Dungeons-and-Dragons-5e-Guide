@@ -1,0 +1,23 @@
+.headerTwo {
+    font-size: 2rem;
+    padding-top: 10px;
+}
+
+.desc {
+    padding-top: 10px;
+    line-height: 1.25;
+}
+
+.headerThree {
+    font-size: 1.5rem;
+    padding-top: 10px;
+}
+
+.listContainer {
+    display: flex;
+}
+
+.listItem {
+    flex-basis: 20%;
+    padding-top: 10px;
+}

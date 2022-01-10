@@ -1,0 +1,33 @@
+.raceContainer {
+    padding: 3%;
+}
+
+.raceHeader {
+    font-size: 2.5rem;
+}
+
+.headerTwo {
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+
+.desc {
+    padding-top: 10px;
+    line-height: 1.25;
+}
+
+.headerThree {
+    padding-top: 10px;
+    font-size: 1.25rem;
+}
+
+.listContainer {
+    display: flex;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.listItem {
+    flex-basis: 20%;
+    padding-top: 10px;
+}

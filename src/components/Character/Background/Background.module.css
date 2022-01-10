@@ -1,0 +1,13 @@
+.headerTwo {
+    font-size: 2rem;
+}
+
+.headerThree {
+    font-size: 1.5rem;
+    padding-top: 10px;
+}
+
+.desc {
+    padding-top: 10px;
+    line-height: 1.25;
+}

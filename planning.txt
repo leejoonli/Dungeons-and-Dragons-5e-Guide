@@ -1,13 +1,13 @@
 App
     Home
         Character
-            Classes
+            Classes check
                 classes (API call)
                     proficiencies
                     subclasses
                         features
                     features
-            Races
+            Races check
                 races (API call)
                     subraces
                         proficiencies
@@ -19,7 +19,23 @@ App
                 alignments
                 backgrounds
                 skills
-        Game Rules and Mechanics
+            Spells
+                class spell lists 
+        Game Rules and Mechanics 
+        
+CSS
 
-FEATURES TO NOT FORGET
-display quantities for items
+BUGS TO SQUASH
+add quanitity to equipment when available
+add (if proficient to use equipment) - damn clerics ruining everything
+repeating class descriptions
+add spaces to game rules and mechanics components
+
+THINGS TO DO
+add multiclass information to game mechanics section
+
+STRETCH GOALS
+add resource information
+add a 'how to'
+add all information from phb (ex. backgrounds)
+add resources from dlc books (xanathars)

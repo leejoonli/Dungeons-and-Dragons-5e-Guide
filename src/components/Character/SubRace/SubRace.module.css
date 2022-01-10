@@ -1,0 +1,19 @@
+.subRaceDesc, .abilityBonus {
+    padding-top: 10px;
+    line-height: 1.25;
+}
+
+.headerFour {
+    font-size: 1.25rem;
+    padding-top: 10px;
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listItem {
+    flex-basis: 20%;
+    padding-top: 10px;
+}
