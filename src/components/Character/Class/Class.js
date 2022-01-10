@@ -187,14 +187,16 @@ function Class(props) {
     }, [id]);
     
     return (
-        <div>
+        <div className={styles.classContainer}>
             {(dndClass &&
             <>
-                <h1>{dndClass.name}</h1>
+                <h1 className={styles.name}>{dndClass.name}</h1>
                 {dndClassLevelsData &&
                 <div>
-                    <div>The {dndClass.name}</div>
-                    {dndClass.spellcasting && <div>Spell Slots per Spell Level</div>}
+                    <div className={styles.gridHeader}>
+                        <div>The {dndClass.name}</div>
+                        {dndClass.spellcasting && <div>Spell Slots per Spell Level</div>}
+                    </div>
                     <div className={styles.gridContainer} style={{ gridTemplateColumns: id === 'barbarian' ? 'repeat(4, 1fr)'
                     : id === 'fighter' ? 'repeat(2, 1fr)'
                     : id === 'monk' ? 'repeat(5, 1fr)'
@@ -211,79 +213,84 @@ function Class(props) {
                     </div>
                 </div>
                 }
-                <h2>Class Features</h2>
-                <h3>Hit Points</h3>
-                <ul>
-                    <li>Hit Dice: 1d{dndClass.hit_die} per {dndClass.index} level</li>
-                    <li>Hit Points at 1st Level: {dndClass.hit_die} + your Constitution modifier</li>
-                    <li>Hit Points at Higher Levels: 1d{dndClass.hit_die} + your Constitution modifier per {dndClass.index} level after 1st</li>
+                <h2 className={styles.classHeaderTwo}>Class Features</h2>
+                <h3 className={styles.classHeaderThree}>Hit Points</h3>
+                <ul className={styles.hitPoints}>
+                    <li className={styles.hitPoints}>Hit Dice: 1d{dndClass.hit_die} per {dndClass.index} level</li>
+                    <li className={styles.hitPoints}>Hit Points at 1st Level: {dndClass.hit_die} + your Constitution modifier</li>
+                    <li className={styles.hitPoints}>Hit Points at Higher Levels: 1d{dndClass.hit_die} + your Constitution modifier per {dndClass.index} level after 1st</li>
                 </ul>
-                <h3>Proficiencies</h3>
-                <h4>Weapons and Armor:</h4>
-                <ul>
+                <h3 className={styles.classHeaderThree}>Proficiencies</h3>
+                <h4 className={styles.classHeaderFour}>Weapons and Armor:</h4>
+                <ul className={styles.listContainer}>
                     {dndClass.proficiencies.map((element, index) => {
-                        return <li key={`${element.index}-${index}`}>{element.name}</li>;
+                        return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>;
                     })}
                 </ul>
                 {!dndClass.proficiency_choices[1] ? null:
                 <>
-                    <h4>Tools:</h4>
+                    <h4 className={styles.classHeaderFour}>Tools:</h4>
                     <p>Choose: {dndClass.proficiency_choices[1].choose}</p>
-                    <ul>
+                    <ul className={styles.listContainer}>
                         {dndClass.proficiency_choices[1].from.map((element, index) => {
-                            return <li key={`${element.index}-${index}`}>{element.name}</li>
+                            return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>
                         })}
                     </ul>
                 </>
                 }
-                <h4>Saving Throws:</h4>
-                <ul>
+                <h4 className={styles.classHeaderFour}>Saving Throws:</h4>
+                <ul className={styles.listContainer}>
                     {dndClass.saving_throws.map((element, index) => {
-                        return <li key={`${element.index}-${index}`}>{element.name}</li>
+                        return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>
                     })}
                 </ul>
-                <h4>Skills:</h4>
-                <p>Choose {dndClass.proficiency_choices[0].choose}</p>
-                <ul>
+                <h4 className={styles.classHeaderFour}>Skills:</h4>
+                <p className={styles.choose}>Choose {dndClass.proficiency_choices[0].choose}</p>
+                <ul className={styles.listContainer}>
                     {dndClass.proficiency_choices[0].from.map((element, index) => {
-                        return <li key={`${element.index}-${index}`}>{element.name.replace('Skill: ', '')}</li>
+                        return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name.replace('Skill: ', '')}</li>
                     })}
                 </ul>
-                <h4>Equipment</h4>
-                <ul>
+                <h4 className={styles.classHeaderFour}>Equipment</h4>
+                <ul className={styles.listContainer}>
                     {dndClass.starting_equipment.map((element, index) => {
                         return <li key={`${element.equipment.index}-${index}`}>{element.equipment.name}</li>
                     })}
                 </ul>
-                <ul>
+                {/* Currently not working because there are objects in arrays that I'm having trouble iterating over */}
+                {/* <ul>
                     {dndClass.starting_equipment_options.map((element, index) => {
                         return (
-                            <li key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element, index) => {
+                            <ul key={`${element.type}-${index}`}>Choose {element.choose}: {element.from.map((element, index) => {
                                 return (
-                                    element.equipment ? <p key={`${element.equipment.index}-${index}`}>{element.equipment.name}</p> :
+                                    Object.keys(element).map((element, index) => {
+                                        return <li>{dndClass.starting_equipment_options[element].from[element]}</li>
+                                    })
+                                    element.equipment ? <>{element.equipment.name}</>
+                                    :
                                     !element.equipment_option ? null : <p key={`${element.equipment_option.from.equipment_category.index}-${index}`}>{element.equipment_option.from.equipment_category.name}</p>
                                 );
-                            })}</li>
+                            })}</ul>
                         )
                     })} 
-                </ul>
+                </ul> */}
                 {dndClass.spellcasting && (
                 <>
-                    <h3>Spellcasting</h3>
+                    <h3 className={styles.classHeaderThree}>Spellcasting</h3>
                     <div>{dndClass.spellcasting.info.map((element, index) => {
                         return (
                             <div key={`${element.name}-${index}`}>
-                                <h5>{element.name}</h5>
+                                <h4 className={styles.classHeaderFour}>{element.name}</h4>
                                 {element.desc.map((element, index) => {
                                     return (
-                                        <p key={`desc-${index}`}>{element}</p>
+                                        <p key={`desc-${index}`} className={styles.spellcastingInfo}>{element}</p>
                                     );
                                 })}
                             </div>
                         );
                     })}</div>
-                    <h4>Spellcasting Ability</h4>
-                    <p>{dndClass.spellcasting.spellcasting_ability.name}</p>
+                    <h4 className={styles.classHeaderFour}>Spellcasting Ability</h4>
+                    <p className={styles.spellcastingInfo}>{dndClass.spellcasting.spellcasting_ability.name}</p>
                 </>
                 )}
                 {dndClassLevels &&
@@ -293,11 +300,11 @@ function Class(props) {
                             <div key={`${element.index}-${index}`}>
                                 {element.features.length !== 0 &&
                                 <>
-                                    <h3>Level: {element.level}</h3>
+                                    <h3 className={styles.classHeaderThree}>Level: {element.level}</h3>
                                     {element.features.map((element, index) => {
                                         return (
                                             <div key={`${element.index}-${index}`}>
-                                                <h4>{element.name}</h4>
+                                                <h4 className={styles.classHeaderFour}>{element.name}</h4>
                                                 <Feature feature={element.index} />
                                             </div>
                                         )
@@ -309,7 +316,7 @@ function Class(props) {
                     })}
                 </>
                 }
-                <h4>Subclass</h4>
+                <h3 className={styles.classHeaderThree}>Subclass</h3>
                 <SubClass subclass={dndClass.subclasses[0].index} />
             </>
             )}

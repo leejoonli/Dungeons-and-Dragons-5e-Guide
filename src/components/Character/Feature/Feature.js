@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Feature.module.css';
 
 function Feature(props) {
     // state to store api data
@@ -13,7 +14,7 @@ function Feature(props) {
     }, [props.feature]);
 
     return (
-        <p>
+        <p className={styles.featureDesc}>
             {feature &&
             <>
                 {feature.desc}

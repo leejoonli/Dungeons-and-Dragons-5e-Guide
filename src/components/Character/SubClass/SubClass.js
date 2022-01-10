@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Feature from '../Feature/Feature';
+import styles from './SubClass.module.css';
 
 function SubClass(props) {
     // state to store subClass data and the data on its levels
@@ -22,8 +23,8 @@ function SubClass(props) {
         <div>
             {subClass &&
             <>
-                <h2>{subClass.subclass_flavor}: {subClass.name}</h2>
-                <p>{subClass.desc[0]}</p>
+                <h2 className={styles.subClassHeader}>{subClass.subclass_flavor}: {subClass.name}</h2>
+                <p className={styles.subClassDesc}>{subClass.desc[0]}</p>
                 {subClassLevels &&
                 <>
                     {subClassLevels.map((element, index) => {

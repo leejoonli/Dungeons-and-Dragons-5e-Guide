@@ -1,3 +1,19 @@
+.classContainer {
+    padding: 3%;
+}
+
+.gridHeader {
+    font-size: 1rem;
+    width: 40vw;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.name {
+    font-size: 2.5rem;
+}
+
 .gridContainer {
     border: 2px solid red;
     display: grid;
@@ -10,4 +26,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.classHeaderTwo {
+    font-size: 1.8rem;
+    padding-top: 20px;
+}
+
+.classHeaderThree {
+    font-size: 1.5rem;
+    padding-top: 20px;
+}
+
+.hitPoints {
+    padding-top: 5px;
+}
+
+.choose {
+    padding-top: 5px;
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.listItem {
+    flex-basis: 20%;
+    padding-top: 10px;
+}
+
+.classHeaderFour {
+    font-size: 1.2rem;
+    padding-top: 20px;
+}
+
+.spellcastingInfo {
+    padding-top: 10px;
+    line-height: 1.15;
 }
