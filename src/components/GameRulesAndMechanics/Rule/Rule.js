@@ -10,19 +10,19 @@ function Rule(props) {
         fetch(`https://www.dnd5eapi.co/api/rule-sections/${type}`)
             .then(res => res.json())
             .then(res => {
-                const temp = res.desc.split('#').filter(element => element.length > 0)
+                const temp = res.desc.split('#').filter(element => element.length > 0);
                 setRule(temp.map((element) => {
                     return element.split('\n').filter(element => element.length > 0)
-                }))
+                }));
             })
-            .catch(console.error)
+            .catch(console.error);
     }, [type]);
-    // setRule(res.desc.split('#'))
+
     return (
         <div>
             {rule &&
             <>
-                {rule.map((element, index) => {
+                {rule.map((element) => {
                     return (
                         element.map((element, index) => {
                             return (
