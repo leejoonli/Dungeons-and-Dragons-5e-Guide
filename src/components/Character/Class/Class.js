@@ -187,7 +187,7 @@ function Class(props) {
     }, [id]);
     
     return (
-      <div className={styles.classContainer}>
+        <div className={styles.classContainer}>
             {(dndClass &&
             <>
                 <h1 className={styles.name}>{dndClass.name}</h1>
@@ -236,36 +236,6 @@ function Class(props) {
                             return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>
                         })}
                     </ul>
-                </>
-                }
-                <h4 className={styles.classHeaderFour}>Saving Throws:</h4>
-                <ul className={styles.listContainer}>
-                    {dndClass.saving_throws.map((element, index) => {
-                        return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name}</li>
-                    })}
-                </ul>
-                <h4 className={styles.classHeaderFour}>Skills:</h4>
-                <p className={styles.choose}>Choose {dndClass.proficiency_choices[0].choose}</p>
-                <ul className={styles.listContainer}>
-                    {dndClass.proficiency_choices[0].from.map((element, index) => {
-                        return <li key={`${element.index}-${index}`} className={styles.listItem}>{element.name.replace('Skill: ', '')}</li>
-                    })}
-                </ul>
-                    <h4>Equipment</h4>
-                    <ul>
-                        {dndClass.starting_equipment.map((element, index) => {
-                            return <li key={`${element.equipment.index}-${index}`}>{element.equipment.name}</li>
-                        })}
-                    </ul>
-                    <ul>
-                        {/* {dndClass.starting_equipment_options.map((element, index) => {
-                            return (
-                                (element.from)
-                            )
-                        })} */}
-                    </ul>
-                    <h4>Subclasses</h4>
-                    <p>{dndClass.subclasses[0].name}</p>
                 </>
                 }
                 <h4 className={styles.classHeaderFour}>Saving Throws:</h4>
