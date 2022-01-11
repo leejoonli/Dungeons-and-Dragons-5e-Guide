@@ -1,0 +1,17 @@
+.spellContainer {
+    padding: 3%;
+}
+
+.spellHeader {
+    font-size: 2rem;
+}
+
+.miniHeader {
+    font-size: 1.15rem;
+    padding-top: 10px;
+}
+
+.desc {
+    padding-top: 10px;
+    line-height: 1.5;
+}
