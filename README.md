@@ -6,9 +6,13 @@ This application is built using React, React Bootstrap, React Router, Javascript
 
 APIs used:
 
-dnd5e api: https://www.dnd5eapi.co/api
+dnd5e api:
 
-open5e: https://open5e.com/api-docs
+https://www.dnd5eapi.co/api
+
+open5e:
+
+https://open5e.com/api-docs
 
 ### Getting Started/Installation Instructions
 If you would like a personal copy of this application the go to this GitHub repository:
