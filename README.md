@@ -27,6 +27,7 @@ https://docs.github.com/en/repositories/creating-and-managing-repositories/cloni
 
 If you would like to just visite the application then go to this link:
 
+https://dungeons-and-dragons-5e-guide-6b812b.netlify.app/
 
 ### Current Application State
 Home State
